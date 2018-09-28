@@ -1,5 +1,5 @@
-import Map from "./Map";
+import Map1 from "./Map1";
 
 export {
-    Map
+    Map1
 }
