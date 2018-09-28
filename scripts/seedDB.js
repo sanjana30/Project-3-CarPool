@@ -1,39 +1,63 @@
 const mongoose = require("mongoose");
 const db = require("../models");
 
-// This file empties the Books collection and inserts the books below
+const defaultRoles = [
+    {
+        role: "ADMIN",
+        permissions: [
+            'Approve User',
+            'Delete User',
+            'Update Profile'
+        ]
+    },
+    {
+        role: "RIDER",
+        permissions: [
+            'Update Profile',
+            'Ride Request'
 
-mongoose.connect(
-  process.env.MONGODB_URI ||
-  "mongodb://localhost/reactarticlelist"
-);
-
-const bookSeed = [
-  {
-    title: "The Dead Zone",
-    url: "https://google.com",
-    date: new Date(Date.now())
-  },
-  {
-    title: "Lord of the Flies",
-    url: "http://youtube.com",
-    date: new Date(Date.now())
-  },
-  {
-    title: "The Catcher in the Rye",
-    url: "http://facebook.com",
-    date: new Date(Date.now())
-  }
+        ]
+    },
+    {
+        role: "DRIVER",
+        permissions: [
+            'Update Profile',
+            'Accept Request'
+        ]
+    }
 ];
 
-db.Article
-  .remove({})
-  .then(() => db.Article.collection.insertMany(bookSeed))
-  .then(data => {
-    console.log(data.result.n + " records inserted!");
-    process.exit(0);
-  })
-  .catch(err => {
-    console.error(err);
-    process.exit(1);
-  });
+class SeedDB {
+
+    seedDefaultRole() {
+        const that = this;
+        db.roleSchema.remove({})
+            .then(() => db.roleSchema.collection.insertMany(defaultRoles))
+            .then(data => {
+                console.log(data.result.n + " records inserted!");
+                that.seedAdmin(data.ops[0]._id);
+            })
+            .catch(err => {
+                console.error(err);
+                process.exit(1);
+            });
+    }
+
+    seedAdmin(role) {
+        db.userSchema.remove({})
+            .then(() => db.userSchema.create({
+                username: 'admin',
+                password: 'admin',
+                role: role
+            })).then(data => {
+            console.log(data.result + " records inserted!");
+        }).catch(err => {
+            console.error(err);
+            process.exit(1);
+        });
+
+    }
+}
+
+module.exports = new SeedDB();
+
