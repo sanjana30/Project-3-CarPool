@@ -1,3 +1,4 @@
 module.exports = {
-  Saveduser: require("./user")
+  userSchema: require("./user"),
+  roleSchema: require("./role")
 };

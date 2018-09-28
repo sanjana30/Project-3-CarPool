@@ -22,5 +22,4 @@ class Map extends Component {
         )
     }
 }
-
 export default withGoogleMap(Map);
