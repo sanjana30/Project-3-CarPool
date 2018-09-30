@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 import SubmitBtn from '../../components/SubmitBtn';
 import API from "../../utils/API";
 import Jumbotron from "../../components/Jumbotron";
+import Home from "../../components/Home";
 import {Col, Row, Container} from "../../components/Grid";
 import {Input, FormBtn} from "../../components/Form";
+import {Route} from "react-router-dom";
 
 class Login extends Component {
     state = {
@@ -12,6 +14,10 @@ class Login extends Component {
         password: ""
     };
 
+    handlePageChange() {
+        debugger;
+        this.props.history.push('/dashboard');
+    }
 
     handleInputChange = event => {
         const {name, value} = event.target;
@@ -29,7 +35,10 @@ class Login extends Component {
                 }
             )
                 .then(res => {
-                        console.log(res);
+                        console.log(res.data);
+                        // setter
+                        sessionStorage.setItem('token', res.data.token);
+                        this.handlePageChange();
                         // this.setState({users: res.data.response.docs, username: "", password: ""});
                         // console.log(this.state.users);
                     }

@@ -30,6 +30,7 @@ class Registration extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
+
         console.log(this.state);
         API.registerNewUser(
             this.state
