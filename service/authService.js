@@ -3,6 +3,11 @@ const db = require("../models/index");
 const secret = "carpool";
 
 class AuthService {
+
+    /**
+     * This function authenticate the login
+     *
+     */
     authenticate(username, password, authCallback) {
         const that = this;
         db.userSchema.findOne({username: username, password: password}, function (err, dbUser) {
@@ -20,6 +25,11 @@ class AuthService {
         });
     }
 
+    /**
+     *
+     * Once user is authenticate token is created
+     */
+
     createToken(userSchema, createTokenCallback) {
         const payload = {
             username: userSchema.username,
@@ -28,6 +38,21 @@ class AuthService {
 
         console.log('New token created for user ' + userSchema.username);
         return createTokenCallback(jwt.sign(payload, secret, {expiresIn: 7200}));
+    }
+
+    /**
+     * Verify the JWT token
+     */
+
+    verifyToken(token, verifyTokenCallback) {
+        jwt.verify(token, secret, function (error, decoded) {
+            if (error) {
+                return verifyTokenCallback('Invalid token.');
+            } else {
+                console.log('Token decoded' + decoded);
+                return verifyTokenCallback(null, decoded);
+            }
+        });
     }
 }
 

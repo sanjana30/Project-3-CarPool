@@ -10,9 +10,20 @@ export default {
     // getBook: function(id) {
     //   return axios.get("/api/books/" + id);
     // },
+    /**
+     *
+     * deleteArticle : Here I have written a sample code to verify the user in each execution
+     *
+     */
 
     deleteArticle: function (id) {
-        return axios.delete("/api/articles/" + id);
+        let token = sessionStorage.getItem('token');
+        let config = {
+            headers: {
+                Authorization: token,
+            }
+        };
+        return axios.delete("/api/articles/" + id, config);
     },
 
     saveArticle: function (articleData) {

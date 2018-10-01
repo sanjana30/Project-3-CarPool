@@ -15,7 +15,7 @@ class Login extends Component {
     };
 
     handlePageChange() {
-        debugger;
+
         this.props.history.push('/dashboard');
     }
 
