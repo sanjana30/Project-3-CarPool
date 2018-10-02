@@ -41,7 +41,7 @@ export default {
 
     registerNewUser: function (registerForm) {
         return axios.post("/api/users", registerForm);
-    }
+    },
 
 
  
