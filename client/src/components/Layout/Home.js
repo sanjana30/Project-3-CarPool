@@ -51,7 +51,6 @@ const Home = () => (
 );
 
 export default Home;
-=======
 import React, { Component } from "react";
 import { Map1 } from "../Custom";
 import { Container, Row, Col } from "../Grid";
