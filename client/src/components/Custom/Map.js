@@ -1,8 +1,18 @@
 import React, {Component} from "react";
-import {withGoogleMap, GoogleMap, Marker} from "react-google-maps"; 
+import {withGoogleMap, GoogleMap, Marker, InfoWindow} from "react-google-maps"; 
 class Map extends Component {
+    state = {
+        markers: [
+            {
+                position: {
+                    lat: 30.2672,
+                    lng: -97.7431
+                }
+            }
+        ]
+    }
     render(){
-        const markers = this.props.markers || [];
+        // const markers = this.props.markers || [];
         return (
             
                 <GoogleMap
@@ -11,12 +21,15 @@ class Map extends Component {
                     defaultCenter = {{lat: 30.2672, lng: -97.7431}}
                     // onClick = {this.props.onMapClick}
                 >
-                {markers.map((marker,index) => (
+                {/* {markers.map((marker,index) => (
                     <Marker
                         {...marker}
                         // onRightClick = {()=> props.onMarkerRightClick(index)}
                     />
-                ))}
+                ))} */}
+                <Marker
+                    position = {this.state.markers.position} />
+                
                 </GoogleMap>
            
         )
