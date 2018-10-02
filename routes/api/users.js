@@ -8,11 +8,11 @@ router.route("/")
     .post(usersController.create);
 
 //Matches with "/api/articles/:id"
-router
-    .route("/:id")
-    .get(usersController.findById)
-    .put(usersController.update)
-    .delete(usersController.delete);
+// router
+//     .route("/:id")
+//     .get(usersController.findById)
+//     .put(usersController.update)
+//     .delete(usersController.delete);
 
 // router.route("*")
 //   .get(client/build/index.html);
