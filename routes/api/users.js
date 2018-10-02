@@ -4,7 +4,9 @@ const authService = require("../../service/authService");
 
 // Matches with "/api/articles"
 router.route("/")
-    .get(usersController.findAll)
+    .get(usersController.findAll);
+
+router.route("/register")
     .post(usersController.create);
 
 //Matches with "/api/articles/:id"
@@ -16,6 +18,7 @@ router.route("/")
 
 // router.route("*")
 //   .get(client/build/index.html);
+
 
 // AuthenticationRoute
 

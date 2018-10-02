@@ -13,7 +13,7 @@ const authService = require('./../service/authService');
  */
 router.use(function (req, res, next) {
     // Skip authentication for certain path
-    if (req.path.endsWith('/authenticate')) {
+    if (req.path.endsWith('/authenticate') || req.path.endsWith('/register')) {
         return next();
     }
 
