@@ -1,6 +1,7 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Home from "./components/Layout";
+import Nav from "./components/Nav"
 import Login from "./pages/Login";
 import Registration from "./pages/Registration";
 import Dashboard from "./pages/Dashboard";
@@ -8,6 +9,7 @@ import Dashboard from "./pages/Dashboard";
 const App = () => (
     <Router>
         <div>
+            <Nav />
             <Switch>
                 <Route exact path="/" component={Login}/>
                 <Route exact path="/login" component={Login}/>
