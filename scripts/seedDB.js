@@ -35,7 +35,7 @@ class SeedDB {
             .then(() => db.roleSchema.collection.insertMany(defaultRoles))
             .then(data => {
                 console.log(data.result.n + " records inserted!");
-                that.seedAdmin(data.ops[0]._id);
+                // that.seedAdmin(data.ops[0]._id);
             })
             .catch(err => {
                 console.error(err);

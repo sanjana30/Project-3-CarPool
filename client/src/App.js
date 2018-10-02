@@ -1,23 +1,23 @@
 import React from "react";
-import Articles from "./pages/Articles";
-import Detail from "./pages/Detail";
-import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./components/Layout"
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import Home from "./components/Layout";
+import Login from "./pages/Login";
+import Registration from "./pages/Registration";
+import Dashboard from "./pages/Dashboard";
+
 const App = () => (
-{/* <Router>
-  <div>
-    <Nav />
-    <Switch> */},
-    {/* <Route exact path="/" component={Articles} />
-    <Route exact path="/articles" component={Articles} />     */},
-    {/* <Route exact path="/books/:id" component={Detail}/> */},
-//     <Route component={NoMatch}/>
-//     </Switch>
-//   </div>
-// </Router>
-<Home />
+    <Router>
+        <div>
+            <Switch>
+                <Route exact path="/" component={Home}/>
+                <Route exact path="/login" component={Login}/>
+                <Route exact path="/register" component={Registration}/>
+                <Route exact path="/dashboard" component={Dashboard}/>
+                <Route exact path="/login" component={Login}/>
+            </Switch>
+        </div>
+    </Router>
+
 );
 
 export default App;
