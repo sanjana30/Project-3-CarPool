@@ -56,21 +56,20 @@ class MapContainer extends Component {
         return (
             <Container fluid>
                 <Row>
-                    <Col size="md-12">
-                        <label>Source:</label>
+                    <Col size="md-6">
+                        
                         <Input
-                            placeholder="Source Location"
+                            placeholder="Source"
                             value={this.state.source}
                             onChange={this.handleInputChange}
                             name="source"
                         />
                     </Col>
-                </Row>
-                <Row>
-                    <Col size="md-12">
-                        <label>Destination:</label>
+                
+                    <Col size="md-6">
+                        
                         <Input
-                            placeholder="Destination Location"
+                            placeholder="Destination"
                             value={this.state.destination}
                             onChange={this.handleInputChange}
                             name="destination"
