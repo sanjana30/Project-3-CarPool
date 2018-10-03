@@ -21,6 +21,11 @@ class Registration extends Component {
 
     }
 
+    handlePageChange() {
+
+        this.props.history.push('/login');
+    }
+
     handleInputChange = event => {
         const {name, value} = event.target;
         this.setState({
@@ -35,7 +40,8 @@ class Registration extends Component {
         API.registerNewUser(
             this.state
         ).then(res => {
-            console.log(res);
+                console.log(res);
+                this.handlePageChange();
             }
         )
             .catch(err => console.log(err));
