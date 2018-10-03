@@ -23,6 +23,8 @@ class MapContainer extends Component {
     handleFormSubmit = (event) => {
         event.preventDefault();
         const newArr = this.state.markers;
+        console.log(sessionStorage.getItem('header'));
+       
         API.getGeoCode(this.state.source)
             .then((response) => {
                 

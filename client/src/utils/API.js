@@ -16,8 +16,8 @@ export default {
     //         }
     //     };
     //     return axios.delete("/api/articles/" + id, config);
-    // },
-
+    // }
+    
 
     loginUser: function (login) {
         return axios.post("/api/users/authenticate", login);
