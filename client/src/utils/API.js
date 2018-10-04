@@ -8,9 +8,6 @@ export default {
      *
      */
 
-
-
-
     getLoggedUserDetail: function () {
         let token = sessionStorage.getItem('token');
         let config = {
