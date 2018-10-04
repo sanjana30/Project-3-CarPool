@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 // import SubmitBtn from '../../components/SubmitBtn';
 import API from "../../utils/API";
-import Nav from "../../components/Nav";
+import Nav from "../../components/NavDashboard";
 import {Col, Row, Container} from "../../components/Grid";
 // import {Input, FormBtn} from "../../components/Form";
 

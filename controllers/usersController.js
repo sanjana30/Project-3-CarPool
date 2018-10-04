@@ -13,9 +13,10 @@ module.exports = {
     },
     findById: function (req, res) {
         db.userSchema
-            .findById(req.params.id)
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
+            .findById(req.tokenPayload._id).select("-password").select("-__v")
+            .then((dbModel) => {
+                res.json(dbModel);
+            }).catch(err => res.status(422).json(err));
     },
 
 

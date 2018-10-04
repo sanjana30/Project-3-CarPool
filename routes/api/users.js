@@ -6,18 +6,11 @@ const authService = require("../../service/authService");
 router.route("/")
     .get(usersController.findAll);
 
+router.route("/details")
+    .get(usersController.findById);
+
 router.route("/register")
     .post(usersController.create);
-
-//Matches with "/api/articles/:id"
-// router
-//     .route("/:id")
-//     .get(usersController.findById)
-//     .put(usersController.update)
-//     .delete(usersController.delete);
-
-// router.route("*")
-//   .get(client/build/index.html);
 
 
 // AuthenticationRoute

@@ -1,3 +1,4 @@
+
 import React from "react";
 
 const styles = {
@@ -9,7 +10,7 @@ const styles = {
 const Nav = () => (
     <nav className="navbar navbar-light" style={styles.navStyle}>
         <a className="navbar-brand" href="#">
-        <img src="../images/logo.png" width="30" height="30" alt="logo" />
+            <img src="../images/logo.png" width="30" height="30" alt="logo" />
         </a>
     </nav>
 );
