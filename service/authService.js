@@ -33,7 +33,8 @@ class AuthService {
     createToken(userSchema, createTokenCallback) {
         const payload = {
             username: userSchema.username,
-            name: userSchema.name
+            name: userSchema.name,
+            _id: userSchema._id,
         };
 
         console.log('New token created for user ' + userSchema.username);

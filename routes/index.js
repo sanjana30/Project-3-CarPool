@@ -5,7 +5,7 @@ const authService = require('./../service/authService');
 
 
 /**
- *  This function is an interceptor which looks for authorization token
+ *  This function is an interceptor and request filter which looks for authorization token
  *  for all the exposed REST API's except /authenticate.
  *
  *  If there is a token in request authorization header then it validates the token

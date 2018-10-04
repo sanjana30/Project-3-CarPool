@@ -6,6 +6,7 @@ import Home from "../../components/Home";
 import {Col, Row, Container} from "../../components/Grid";
 import {Input, FormBtn} from "../../components/Form";
 import {Route} from "react-router-dom";
+import Nav from "../../components/Nav"
 
 class Login extends Component {
     state = {
@@ -17,7 +18,7 @@ class Login extends Component {
     handlePageChange() {
 
         this.props.history.push('/dashboard');
-    }
+    };
 
     handleInputChange = event => {
         const {name, value} = event.target;
@@ -49,7 +50,9 @@ class Login extends Component {
 
     render() {
         return (
+
             <Container>
+
                 <Row>
                     <Col size="sm-12">
                         <Jumbotron>
@@ -85,6 +88,8 @@ class Login extends Component {
                 </Row>
 
             </Container>
+
+
         )
     }
 }
