@@ -16,6 +16,17 @@ class MapContainer extends Component {
         ],
         source: "",
         destination: ""
+       
+    };
+    getUserInfo = (location) => {
+        API.getLoggedUserDetail()
+            .then(res =>{
+                console.log(res.data._id);
+                API.addUserLocation(res.data._id, location)
+                    .then(response => console.log(response))
+                    .catch(err => console.log(err));
+            })
+            .catch(err => console.log(err));
     };
     handleInputChange = (event) => {
         this.setState({ [event.target.name]: event.target.value });
@@ -31,6 +42,9 @@ class MapContainer extends Component {
                 let sourceMarker = {
                     position: response.data.results[0].geometry.location
                 }
+                let sourcelocation = {
+                    source: response.data.results[0].geometry.location
+                }
                 newArr.push(sourceMarker);
                 API.getGeoCode(this.state.destination)
                     .then(res => {
@@ -39,7 +53,12 @@ class MapContainer extends Component {
                             position: res.data.results[0].geometry.location
                         };
                         newArr.push(destinationMarker);
+                        let destinationlocation = {
+                            destination: res.data.results[0].geometry.location,
+                        };
                         this.setState({ markers: newArr }, () => console.log(this.state.markers));
+                        this.getUserInfo(sourcelocation);
+                        this.getUserInfo(destinationlocation);
                     })
                     .catch(err => console.log(err));
             })
@@ -94,9 +113,11 @@ class MapContainer extends Component {
                             containerElement={<div style={this.styles.containerstyle} />}
                             mapElement={<div style={this.styles.mapstyle} />}
                             markers={this.state.markers}
+                            onMarkerClick={this.handleMarkerClick}
                         />
                     </Col>
                 </Row>
+                
 
             </Container>
 

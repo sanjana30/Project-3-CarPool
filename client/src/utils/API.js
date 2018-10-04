@@ -26,6 +26,15 @@ export default {
         return axios.post("/api/users/register", registerForm);
     },
 
+    addUserLocation: function(id, locationData){
+        let token = sessionStorage.getItem('token');
+        let config = {
+            headers: {
+                Authorization: token,
+            }
+        };
+        return axios.put("/api/users/"+id, locationData, config);
+    },
 
     getGeoCode: function (address) {
         const apikey = "AIzaSyCxFvOfI3TIp-t_lGYU0o0oD6Uh120miHc";

@@ -17,7 +17,8 @@ const userSchema = new Schema({
             type: Schema.ObjectId,
             ref: 'role'
         }],
-// source: { type: String },
+source: { type: Object },
+destination: {type: Object}
 // destination: { type: String },
 // isOnline: { type: Boolean, default: true },
 // isDriving: { type: Boolean, default: true },
