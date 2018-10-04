@@ -1,28 +1,53 @@
 const async = require('async');
 const db = require("../models");
 
-
 module.exports = {
 
-    findAll: function (req, res) {
+    // findAll: function (req, res) {
+    //     db.userSchema
+    //         .findById(req.tokenPayload._id).select("-password").select("-__v")
+    //         .then((dbModel) => {
+    //             res.json(dbModel);
+    //             console.log("----------"+dbModel);
+    //             db.userSchema
+    //                 .find({username: "meetu"})
+    //                 .then(dbModel => res.json(dbModel))
+    //                 .catch(err => res.status(422).json(err))
+    //         }).catch(err => res.status(422).json(err));
+    //     db.userSchema
+    //         .find({_id: {$not: req.params.id}})
+    //         .then(dbModel => res.json(dbModel))
+    //         .catch(err => res.status(422).json(err));
+    findAll: function (req, res){        
         db.userSchema
-            .find({_id: {$not: req.params.id}})
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
+            .find({_id: {$not: "abc"}})
+            .then((response) => res.json(response))
+            .catch(err => console.log(err));
     },
     findById: function (req, res) {
         db.userSchema
             .findById(req.tokenPayload._id).select("-password").select("-__v")
             .then((dbModel) => {
                 res.json(dbModel);
+                console.log("----------"+dbModel);
             }).catch(err => res.status(422).json(err));
     },
     
     update: function (req, res) {
         db.userSchema
-            .findOneAndUpdate({_id: req.params.id}, req.body)
-            .then(dbModel => {console.log(dbModel);res.json(dbModel)})
-            .catch(err => res.status(422).json(err));
+            .findById(req.tokenPayload._id).select("-password").select("-__v")
+            .then((dbModel) => {
+                res.json(dbModel);
+                console.log("----------"+dbModel);
+                db.userSchema
+                .findOneAndUpdate({_id: dbModel._id}, req.body)
+                .then(dbModel => {console.log(dbModel);res.json(dbModel)})
+                .catch(err => res.status(422).json(err))
+            }).catch(err => res.status(422).json(err));
+        // db.userSchema
+        //     .findOneAndUpdate({_id: req.params.id}, req.body)
+        //     .then(dbModel => {console.log(dbModel);res.json(dbModel)})
+        //     .catch(err => res.status(422).json(err));
     },
 
     create: function (req, res) {
