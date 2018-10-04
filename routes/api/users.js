@@ -3,7 +3,7 @@ const usersController = require("../../controllers/usersController");
 const authService = require("../../service/authService");
 
 // Matches with "/api/users"
-router.route("/")
+router.route("/:id")
     .get(usersController.findAll);
 
 router.route("/details")
@@ -14,6 +14,7 @@ router.route("/register")
 
 router.route("/:id")
     .put(usersController.update);
+    
 
 // AuthenticationRoute
 

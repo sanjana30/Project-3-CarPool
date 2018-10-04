@@ -11,7 +11,7 @@ const Map1 = withGoogleMap(props => {
             defaultCenter = {{lat: 30.2672, lng: -97.7431}}
             // onClick = {this.props.onMapClick}
         >
-        {props.markers.map((marker, index) =>  (
+        {props.usermarker.map((marker, index) =>  (
              <Marker 
                     key={index}
                     position={marker.position}
