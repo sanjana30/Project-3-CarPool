@@ -4,6 +4,7 @@ import API from "../../utils/API";
 import Jumbotron from "../../components/Jumbotron";
 import {Col, Row, Container} from "../../components/Grid";
 import {Input, FormBtn} from "../../components/Form";
+import Nav from "../../components/Nav";
 
 class Registration extends Component {
     state = {
@@ -51,6 +52,7 @@ class Registration extends Component {
     render() {
         return (
             <Container>
+                < Nav/>
                 <Row>
                     <Col size="sm-12">
                         <Jumbotron>
