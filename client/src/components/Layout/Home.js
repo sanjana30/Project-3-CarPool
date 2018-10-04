@@ -10,18 +10,22 @@ class MapContainer extends Component {
         usermarker: [],
         source: "",
         destination: "",
-        userId: ""
+        userId: "",
+        userData: ""
     };
-    getUserInfo = (location) => {
-        API.getLoggedUserDetail()
-            .then(res =>{
-                console.log(res.data._id);
-                this.setState({userId: res.data._id})
-                API.addUserLocation(res.data._id, location)
+    updateUserInfo = (location) => {
+        // API.getLoggedUserDetail()
+        //     .then(res =>{
+        //         console.log(res.data._id);
+        //         this.setState({userId: res.data._id})
+        //         API.addUserLocation(res.data._id, location)
+        //             .then(response => console.log(response))
+        //             .catch(err => console.log(err));
+        //     })
+        //     .catch(err => console.log(err));
+        API.addUserLocation(location)
                     .then(response => console.log(response))
                     .catch(err => console.log(err));
-            })
-            .catch(err => console.log(err));
     };
     fetchOtherUsers = () => {
         API.getOtherMarkers(this.state.userId)
@@ -31,6 +35,7 @@ class MapContainer extends Component {
     handleInputChange = (event) => {
         this.setState({ [event.target.name]: event.target.value });
     };
+    
     handleFormSubmit = (event) => {
         event.preventDefault();
         const newArr = this.state.markers;       
@@ -55,8 +60,8 @@ class MapContainer extends Component {
                             destination: res.data.results[0].geometry.location,
                         };
                         this.setState({ usermarker: newArr });
-                        this.getUserInfo(sourcelocation);
-                        this.getUserInfo(destinationlocation);
+                        this.updateUserInfo(sourcelocation);
+                        this.updateUserInfo(destinationlocation);
                         this.fetchOtherUsers();
                     })
                     .catch(err => console.log(err));
@@ -116,6 +121,9 @@ class MapContainer extends Component {
                         />
                     </Col>
                 </Row>
+                {
+                    !this.state.userData ?<div>ABC</div> : <div></div>
+                }
                 
 
             </Container>
