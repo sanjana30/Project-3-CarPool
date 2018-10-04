@@ -6,8 +6,7 @@ module.exports = {
 
     findAll: function (req, res) {
         db.userSchema
-            .find(req.query)
-            .sort({date: -1})
+            .find({_id: {$not: req.params.id}})
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
@@ -18,7 +17,13 @@ module.exports = {
                 res.json(dbModel);
             }).catch(err => res.status(422).json(err));
     },
-
+    
+    update: function (req, res) {
+        db.userSchema
+            .findOneAndUpdate({_id: req.params.id}, req.body)
+            .then(dbModel => {console.log(dbModel);res.json(dbModel)})
+            .catch(err => res.status(422).json(err));
+    },
 
     create: function (req, res) {
         let result = req.body;
@@ -71,12 +76,7 @@ module.exports = {
         });
     },
 
-    update: function (req, res) {
-        db.userSchema
-            .findOneAndUpdate({_id: req.params.id}, req.body)
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
-    },
+    
     delete: function (req, res) {
         db.userSchema
             .findById({_id: req.params.id})

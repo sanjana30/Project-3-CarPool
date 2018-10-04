@@ -7,28 +7,42 @@ import NavDashboard from "../../components/NavDashboard"
 
 class MapContainer extends Component {
     state = {
-        markers: [
-            // {
-            //     position: {
-            //         lat: 30.2672,
-            //         lng: -97.7431
-            //     }
-            // }
-        ],
+        markers: [],
+        usermarker: [],
         source: "",
-        destination: ""
+        destination: "",
+        userId: ""
+    };
+    getUserInfo = (location) => {
+        API.getLoggedUserDetail()
+            .then(res =>{
+                console.log(res.data._id);
+                this.setState({userId: res.data._id})
+                API.addUserLocation(res.data._id, location)
+                    .then(response => console.log(response))
+                    .catch(err => console.log(err));
+            })
+            .catch(err => console.log(err));
+    };
+    fetchOtherUsers = () => {
+        API.getOtherMarkers(this.state.userId)
+            .then(response => console.log(response))
+            .catch(err => console.log(err));
     };
     handleInputChange = (event) => {
         this.setState({ [event.target.name]: event.target.value });
     };
     handleFormSubmit = (event) => {
         event.preventDefault();
-        const newArr = this.state.markers;
+        const newArr = this.state.markers;       
         API.getGeoCode(this.state.source)
             .then((response) => {
                 
                 let sourceMarker = {
                     position: response.data.results[0].geometry.location
+                }
+                let sourcelocation = {
+                    source: response.data.results[0].geometry.location
                 }
                 newArr.push(sourceMarker);
                 API.getGeoCode(this.state.destination)
@@ -38,7 +52,13 @@ class MapContainer extends Component {
                             position: res.data.results[0].geometry.location
                         };
                         newArr.push(destinationMarker);
-                        this.setState({ markers: newArr }, () => console.log(this.state.markers));
+                        let destinationlocation = {
+                            destination: res.data.results[0].geometry.location,
+                        };
+                        this.setState({ usermarker: newArr });
+                        this.getUserInfo(sourcelocation);
+                        this.getUserInfo(destinationlocation);
+                        this.fetchOtherUsers();
                     })
                     .catch(err => console.log(err));
             })
@@ -93,10 +113,12 @@ class MapContainer extends Component {
                         <Map1
                             containerElement={<div style={this.styles.containerstyle} />}
                             mapElement={<div style={this.styles.mapstyle} />}
-                            markers={this.state.markers}
+                            usermarker={this.state.usermarker}
+                            onMarkerClick={this.handleMarkerClick}
                         />
                     </Col>
                 </Row>
+                
 
             </Container>
 

@@ -2,8 +2,8 @@ const router = require("express").Router();
 const usersController = require("../../controllers/usersController");
 const authService = require("../../service/authService");
 
-// Matches with "/api/articles"
-router.route("/")
+// Matches with "/api/users"
+router.route("/:id")
     .get(usersController.findAll);
 
 router.route("/details")
@@ -12,6 +12,9 @@ router.route("/details")
 router.route("/register")
     .post(usersController.create);
 
+router.route("/:id")
+    .put(usersController.update);
+    
 
 // AuthenticationRoute
 
