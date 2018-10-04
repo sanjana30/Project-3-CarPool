@@ -8,15 +8,15 @@ export default {
      *
      */
 
-    getLoggedUserDetail: function () {
-        let token = sessionStorage.getItem('token');
-        let config = {
-            headers: {
-                Authorization: token,
-            }
-        };
-        return axios.get("/api/users/details", config);
-    },
+    // getLoggedUserDetail: function () {
+    //     let token = sessionStorage.getItem('token');
+    //     let config = {
+    //         headers: {
+    //             Authorization: token,
+    //         }
+    //     };
+    //     return axios.get("/api/users/details", config);
+    // },
 
     loginUser: function (login) {
         return axios.post("/api/users/authenticate", login);
@@ -26,24 +26,24 @@ export default {
         return axios.post("/api/users/register", registerForm);
     },
 
-    addUserLocation: function(id, locationData){
+    addUserLocation: function(locationData){
         let token = sessionStorage.getItem('token');
         let config = {
             headers: {
                 Authorization: token,
             }
         };
-        return axios.put("/api/users/"+id, locationData, config);
+        return axios.put("/api/users/details", locationData, config);
     },
 
-    getOtherMarkers: function(id){
-        // let token = sessionStorage.getItem('token');
-        // let config = {
-        //     headers: {
-        //         Authorization: token,
-        //     }
-        // };
-        return axios.get("/api/users/"+id);
+    getOtherMarkers: function(){
+        let token = sessionStorage.getItem('token');
+        let config = {
+            headers: {
+                Authorization: token,
+            }
+        };
+        return axios.get("/api/users/others", config);
     },
     getGeoCode: function (address) {
         const apikey = "AIzaSyCxFvOfI3TIp-t_lGYU0o0oD6Uh120miHc";

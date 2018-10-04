@@ -15,7 +15,7 @@ const Map1 = withGoogleMap(props => {
              <Marker 
                     key={index}
                     position={marker.position}
-                    onClick={()=>props.onMarkerClick(index)}
+                    onClick={()=>props.onMarkerClick()}
             >
                 {/* {marker.showInfo && (
                     <InfoWindow onCloseClick={()=>props.onMarkerClose(marker)}>
