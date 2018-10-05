@@ -62,7 +62,7 @@ export default {
         return axios.get(queryurl);
     },
     calculateDistance: function (sourceLat, sourceLng, destLat, destLng) {
-        let queryurl = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=" + sourceLat + "," + sourceLng + "&destinations=" + destLat + "," + destLng + "&key=AIzaSyCxFvOfI3TIp-t_lGYU0o0oD6Uh120miHc"+"https://cors-anywhere.herokuapp.com/";
+        let queryurl = "https://cors-anywhere.herokuapp.com/"+"https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=" + sourceLat + "," + sourceLng + "&destinations=" + destLat + "," + destLng + "&key=AIzaSyCxFvOfI3TIp-t_lGYU0o0oD6Uh120miHc";
         return axios.get(queryurl);
     }
 

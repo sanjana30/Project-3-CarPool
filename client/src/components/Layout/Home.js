@@ -6,14 +6,14 @@ import API from "../../utils/API";
 
 class MapContainer extends Component {
     state = {
-        
         markers: [],
         usermarker: [],
         source: "",
         destination: "",
         userId: "",
         userData: "",
-        userDriving: true
+        userDriving: true,
+        clickedMarker: ""
     };
 
     updateUserInfo = (location) => {
@@ -35,50 +35,70 @@ class MapContainer extends Component {
         API.getOtherMarkers()
             .then(response => {
                 console.log(response);
-                
-                response.data.map(item => {
-                    // calculate distance between sources 
-                    // API.calculateDistance(this.state.usermarker[0].position.lat, this.state.usermarker[0].position.lng, item.source.lat, item.source.lng)
-                    //     .then(res => console.log(res))
-                    //     .catch(err => console.log(err));
-                    //check status of driving
-                    if(item.isDriver !== this.state.userDriving){
-                        console.log(item);
-                        array.push(item);
-                        console.log(array);
 
-                    }
-                    console.log("Test\n"+JSON.stringify(array))
+                response.data.map(item => {
+
+
+
+                    //check status of driving
+                    if (item.isDriver !== this.state.userDriving) {
+                        // array.push(item);
+                        // calculate distance between sources 
+                        console.log(this.state.usermarker);
+                        API.calculateDistance(this.state.usermarker[0].position.lat, this.state.usermarker[0].position.lng, item.source.lat, item.source.lng)
+                            .then(res => {
+                                console.log(res.data.rows[0].elements[0].distance.value);
+                                if (res.data.rows[0].elements[0].distance.value <= 20000) {
+                                    API.calculateDistance(this.state.usermarker[1].position.lat, this.state.usermarker[1].position.lng, item.destination.lat, item.destination.lng)
+                                        .then(result => {
+                                            console.log(result.data.rows[0].elements[0].distance.value);
+                                            if (result.data.rows[0].elements[0].distance.value <= 20000) {
+                                                array.push(item);
+                                                console.log(array);
+                                                this.setState({ markers: array }, () => console.log(this.state.markers));
+                                            }   //destination distance check closed
+                                        })
+                                        .catch(err => console.log(err));
+                                }   //source distance check closed
+                            })
+                            .catch(err => console.log(err));
+                    }       //driver/rider status check closed
                 });
-                //array = JSON.stringify(array);
-                console.log(array);
-                this.setState({markers: array}, ()=>console.log(this.state.markers));
+                // this.setState({markers: array}, ()=>console.log(this.state.markers));
             })
             .catch(err => console.log(err));
     };
     handleInputChange = (event) => {
         this.setState({ [event.target.name]: event.target.value });
     };
+    handleMarkerClick = (id) => {
+        console.log(id);
+        this.state.markers.map(item => {
+            if(item._id === id){
+                this.setState({clickedMarker: item}, ()=> console.log(this.state.clickedMarker));
+            }
+        })
+    }
     setDrivingStatus = (event) => {
-        if(event.target.value === "driver"){
+        if (event.target.value === "driver") {
             console.log("Hey! I am a driver");
-            this.setState({userDriving: true});
-            let status = {isDriver: true}
+            this.setState({ userDriving: true });
+            let status = { isDriver: true }
             API.updateDrivingStatus(status)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
         }
-        if(event.target.value === "rider"){
+        if (event.target.value === "rider") {
             console.log("Hey! I am a rider");
-            this.setState({userDriving: false});
-            let status = {isDriver: false}
+            this.setState({ userDriving: false });
+            let status = { isDriver: false }
             API.updateDrivingStatus(status)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
         }
-            
+
     };
-    
+
     handleFormSubmit = (event) => {
         event.preventDefault();
         const newArr = this.state.usermarker;
@@ -150,18 +170,18 @@ class MapContainer extends Component {
                 <Row>
                     <Col size="md-6">
                         <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="driver" onClick={this.setDrivingStatus} checked />
-                        <label class="form-check-label" for="exampleRadios1">
-                            Driver
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="driver" onClick={this.setDrivingStatus} checked />
+                            <label class="form-check-label" for="exampleRadios1">
+                                Driver
                         </label>
                         </div>
                         <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="rider" onClick={this.setDrivingStatus} />
-                        <label class="form-check-label" for="exampleRadios2">
-                           Rider
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="rider" onClick={this.setDrivingStatus} />
+                            <label class="form-check-label" for="exampleRadios2">
+                                Rider
                         </label>
                         </div>
-                        
+
                     </Col>
                     <Col size="md-6">
                         <FormBtn
@@ -186,34 +206,13 @@ class MapContainer extends Component {
                 {
                     !this.state.userData ? <div>ABC</div> : <div></div>
                 }
-    
+
 
             </Container>
 
-                        )
-                    }
-                }
-                
-                export default MapContainer;
-                
-// export default (props) => {
-//     const styles = {
-//         containerstyle: {
-//             height: 100
-//         },
-//         mapstyle: {
-//             height: 100
-//         }
-//     }
-//     return (
-//         <div>Home
-//             <Map
-//                 containerElement={<div style={styles.containerstyle} />}
-//                 mapElement={<div style={styles.mapstyle} />}
-//                 markers={{ lat: 30.2672, lng: -97.7431 }}
-//             />
-//         </div>
+        )
+    }
+}
 
-//     )
-// }
+export default MapContainer;
 
