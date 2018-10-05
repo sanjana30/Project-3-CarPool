@@ -171,7 +171,7 @@ class MapContainer extends Component {
                 <Row>
                     <Col size="md-6">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="driver" onClick={this.setDrivingStatus} checked />
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="driver" onClick={this.setDrivingStatus} defaultChecked />
                             <label class="form-check-label" for="exampleRadios1">
                                 Driver
                         </label>
@@ -214,6 +214,7 @@ class MapContainer extends Component {
                             carNumber = {this.state.clickedMarker.licencePlate}
                             id = {this.state.clickedMarker._id}
                             status = {this.state.clickedMarker.isDriver}
+                            
                         />
                     </Row>
                     
