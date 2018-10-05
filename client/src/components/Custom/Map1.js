@@ -12,16 +12,12 @@ const Map1 = withGoogleMap(props => {
             defaultCenter = {{lat: 30.2672, lng: -97.7431}}
             // onClick = {this.props.onMapClick}
         >
-         {console.log("-------------------------------\n"+props.usermarker+"\n--------------------")
-         
-
-        }
         {props.usermarker.map((marker, index) =>  (
             
              <Marker 
                     key={index}
                     position={marker.position}
-                    onClick={()=>props.onMarkerClick()}
+                    // onClick={()=>props.onMarkerClick()}
                     icon = {{
                         url: Pin,
                         scaledSize: { width: 32, height: 32 }
@@ -39,17 +35,13 @@ const Map1 = withGoogleMap(props => {
             
         )
         )}  
-        {console.log("-------------------------------\n"+props.othermarkers+"\n--------------------")
-         
-
-        }
-
-        {props.othermarkers.map((marker, index) =>  (
+        {console.log(props.othermarkers)}
+        {props.othermarkers.map((marker) =>  (
             
             <Marker 
-                   key={index}
+                   key={marker._id}
                    position={marker.source}
-                   onClick={()=>props.onMarkerClick()}                  
+                   onClick={()=>props.onMarkerClick(marker._id)}                  
            >
            </Marker>
            
