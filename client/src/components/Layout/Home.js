@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { Map1 } from "../Custom";
-import { Container, Row, Col } from "../Grid";
-import { Input, FormBtn } from "../Form";
+import React, {Component} from "react";
+import {Map1} from "../Custom";
+import {Container, Row, Col} from "../Grid";
+import {Input, FormBtn} from "../Form";
 import UserCard from "../UserCard";
-import Nav from "../NavDashboard";
+import NavDashboard from "../NavDashboard";
 import API from "../../utils/API";
 
 class MapContainer extends Component {
@@ -29,7 +29,7 @@ class MapContainer extends Component {
     // componentDidMount = () => {
     //     this.getUserName();
     // };
-    
+
     updateUserInfo = (location) => {
         // API.getLoggedUserDetail()
         //     .then(res =>{
@@ -69,7 +69,7 @@ class MapContainer extends Component {
                                             if (result.data.rows[0].elements[0].distance.value <= 20000) {
                                                 array.push(item);
                                                 console.log(array);
-                                                this.setState({ markers: array }, () => console.log(this.state.markers));
+                                                this.setState({markers: array}, () => console.log(this.state.markers));
                                             }   //destination distance check closed
                                         })
                                         .catch(err => console.log(err));
@@ -83,29 +83,30 @@ class MapContainer extends Component {
             .catch(err => console.log(err));
     };
     handleInputChange = (event) => {
-        this.setState({ [event.target.name]: event.target.value });
+        this.setState({[event.target.name]: event.target.value});
     };
+
     handleMarkerClick = (id) => {
         console.log(id);
         this.state.markers.map(item => {
-            if(item._id === id){
-                this.setState({clickedMarker: item}, ()=> console.log(this.state.clickedMarker));
+            if (item._id === id) {
+                this.setState({clickedMarker: item}, () => console.log(this.state.clickedMarker));
             }
         })
     }
     setDrivingStatus = (event) => {
         if (event.target.value === "driver") {
             console.log("Hey! I am a driver");
-            this.setState({ userDriving: true });
-            let status = { isDriver: true }
+            this.setState({userDriving: true});
+            let status = {isDriver: true}
             API.updateDrivingStatus(status)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
         }
         if (event.target.value === "rider") {
             console.log("Hey! I am a rider");
-            this.setState({ userDriving: false });
-            let status = { isDriver: false }
+            this.setState({userDriving: false});
+            let status = {isDriver: false}
             API.updateDrivingStatus(status)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
@@ -121,10 +122,10 @@ class MapContainer extends Component {
 
                 let sourceMarker = {
                     position: response.data.results[0].geometry.location
-                }
+                };
                 let sourcelocation = {
                     source: response.data.results[0].geometry.location
-                }
+                };
                 newArr.push(sourceMarker);
                 API.getGeoCode(this.state.destination)
                     .then(res => {
@@ -137,7 +138,8 @@ class MapContainer extends Component {
                             destination: res.data.results[0].geometry.location,
                         };
 
-                        this.setState({ usermarker: newArr }, () => console.log(this.state.usermarker));
+
+                        this.setState({usermarker: newArr}, () => console.log(this.state.usermarker));
 
                         this.updateUserInfo(sourcelocation);
                         this.updateUserInfo(destinationlocation);
@@ -156,9 +158,10 @@ class MapContainer extends Component {
             height: 600
         }
     };
+
     render() {
         return [
-            <Nav />,
+            <NavDashboard />,
             <Container fluid>
                 <Row>
                     <Col size="md-6">
@@ -185,16 +188,19 @@ class MapContainer extends Component {
                 <Row>
                     <Col size="md-6">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="driver" onClick={this.setDrivingStatus} defaultChecked />
+
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                                   value="driver" onClick={this.setDrivingStatus} defaultChecked/>
                             <label class="form-check-label" for="exampleRadios1">
                                 Driver
-                        </label>
+                            </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="rider" onClick={this.setDrivingStatus} />
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                                   value="rider" onClick={this.setDrivingStatus}/>
                             <label class="form-check-label" for="exampleRadios2">
                                 Rider
-                        </label>
+                            </label>
                         </div>
 
                     </Col>
@@ -210,8 +216,8 @@ class MapContainer extends Component {
                 <Row>
                     <Col size="md-12">
                         <Map1
-                            containerElement={<div style={this.styles.containerstyle} />}
-                            mapElement={<div style={this.styles.mapstyle} />}
+                            containerElement={<div style={this.styles.containerstyle}/>}
+                            mapElement={<div style={this.styles.mapstyle}/>}
                             usermarker={this.state.usermarker}
                             onMarkerClick={this.handleMarkerClick}
                             othermarkers={this.state.markers}
@@ -219,23 +225,24 @@ class MapContainer extends Component {
                     </Col>
                 </Row>
                 {
+
                     this.state.clickedMarker ?
-                    <Row>
-                        <UserCard 
-                            name = {this.state.clickedMarker.name}
-                            phone = {this.state.clickedMarker.phone}
-                            driverLicense = {this.state.clickedMarker.driverLicence}
-                            carNumber = {this.state.clickedMarker.licencePlate}
-                            id = {this.state.clickedMarker._id}
-                            status = {this.state.clickedMarker.isDriver}
-                            
-                        />
-                    </Row>
-                    
-                    : <Row></Row>
+
+                        <Row>
+                            <UserCard
+                                name={this.state.clickedMarker.name}
+                                phone={this.state.clickedMarker.phone}
+                                driverLicense={this.state.clickedMarker.driverLicence}
+                                carNumber={this.state.clickedMarker.licencePlate}
+                                id={this.state.clickedMarker._id}
+                                status={this.state.clickedMarker.isDriver}
+
+                            />
+                        </Row>
+
+                        : <Row></Row>
+
                 }
-
-
             </Container>
 
         ]

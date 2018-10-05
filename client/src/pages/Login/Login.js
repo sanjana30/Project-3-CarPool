@@ -1,12 +1,8 @@
 import React, {Component} from 'react';
-import SubmitBtn from '../../components/SubmitBtn';
 import API from "../../utils/API";
 import Jumbotron from "../../components/Jumbotron";
-import Home from "../../components/Home";
 import {Col, Row, Container} from "../../components/Grid";
 import {Input, FormBtn} from "../../components/Form";
-import {Route} from "react-router-dom";
-import Nav from "../../components/Nav"
 
 class Login extends Component {
     state = {
@@ -52,7 +48,6 @@ class Login extends Component {
         return (
 
             <Container>
-
                 <Row>
                     <Col size="sm-12">
                         <Jumbotron>
