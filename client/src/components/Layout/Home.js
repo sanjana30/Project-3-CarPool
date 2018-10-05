@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Map1 } from "../Custom";
 import { Container, Row, Col } from "../Grid";
 import { Input, FormBtn } from "../Form";
+import UserCard from "../UserCard";
 import API from "../../utils/API";
 
 class MapContainer extends Component {
@@ -204,7 +205,19 @@ class MapContainer extends Component {
                     </Col>
                 </Row>
                 {
-                    !this.state.userData ? <div>ABC</div> : <div></div>
+                    this.state.clickedMarker ?
+                    <Row>
+                        <UserCard 
+                            name = {this.state.clickedMarker.name}
+                            phone = {this.state.clickedMarker.phone}
+                            driverLicense = {this.state.clickedMarker.driverLicence}
+                            carNumber = {this.state.clickedMarker.licencePlate}
+                            id = {this.state.clickedMarker._id}
+                            status = {this.state.clickedMarker.isDriver}
+                        />
+                    </Row>
+                    
+                    : <Row></Row>
                 }
 
 

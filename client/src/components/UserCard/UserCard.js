@@ -6,11 +6,17 @@ import React from "react";
 const UserCard = props => (
     <div className="card">
         <div className="card-header">
-            Featured
+            {props.status ? "Driver" : "Rider"}
         </div>
         <div className="card-body">
-            <h5 className="card-title">Special title treatment</h5>
-            <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <h5 className="card-title">{props.name}</h5>
+            <h6 className="card-text">Phone: {props.phone}</h6>
+            <h6 className="card-text">ID: {props.driverLicense}</h6>
+            {props.status ? 
+                <h6 className="card-text">Car #: {props.carNumber}</h6>
+                : ""                
+            }
+          
             <a href="#" class="btn btn-primary">Connect</a>
         </div>
     </div>
