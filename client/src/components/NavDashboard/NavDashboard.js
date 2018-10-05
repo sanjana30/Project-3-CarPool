@@ -2,10 +2,24 @@ import React, { Component } from "react";
 import { Route, withRouter } from 'react-router-dom';
 import "./NavDashboard.css";
 import { Input, FormBtn } from "../../components/Form";
-import Logo from "../images/logo.png"
+import Logo from "../images/resized-logo.png";
+import API from "../../utils/API";
 
 class NavDashboard extends Component {
-
+    state = {
+        nameofuser : ""
+    }
+    getUserName = () => {
+        API.fetchUserName()
+            .then(res => {
+                console.log(res.data.name);
+                this.setState({nameofuser: res.data.name});
+            })
+            .catch(err => console.log(err));
+    }
+    componentDidMount = () => {
+        this.getUserName();
+    };
     handleLogout = () => {
         sessionStorage.clear();
         this.props.history.push('/login');
@@ -22,7 +36,8 @@ class NavDashboard extends Component {
         },
         navdropdown: {
             float: "right",
-            color: "#e74944"
+            color: "#e74944",
+            flexDirection: "row-reverse" 
         }
     };
 
@@ -43,7 +58,7 @@ class NavDashboard extends Component {
                             <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                                 data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
-                                Dropdown link
+                                {this.state.nameofuser}
                             </a>
                             <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a className="dropdown-item" onClick={this.handleUserProfile}>My

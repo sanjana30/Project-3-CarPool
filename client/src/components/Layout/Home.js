@@ -3,6 +3,7 @@ import { Map1 } from "../Custom";
 import { Container, Row, Col } from "../Grid";
 import { Input, FormBtn } from "../Form";
 import UserCard from "../UserCard";
+import Nav from "../NavDashboard";
 import API from "../../utils/API";
 
 class MapContainer extends Component {
@@ -14,9 +15,21 @@ class MapContainer extends Component {
         userId: "",
         userData: "",
         userDriving: true,
-        clickedMarker: ""
+        clickedMarker: "",
+        nameofuser: ""
     };
-
+    // getUserName = () => {
+    //     API.fetchUserName()
+    //         .then(res => {
+    //             console.log(res.data.name);
+    //             this.setState({nameofuser: res.data.name});
+    //         })
+    //         .catch(err => consol.log(err));
+    // }
+    // componentDidMount = () => {
+    //     this.getUserName();
+    // };
+    
     updateUserInfo = (location) => {
         // API.getLoggedUserDetail()
         //     .then(res =>{
@@ -144,7 +157,8 @@ class MapContainer extends Component {
         }
     };
     render() {
-        return (
+        return [
+            <Nav />,
             <Container fluid>
                 <Row>
                     <Col size="md-6">
@@ -171,7 +185,7 @@ class MapContainer extends Component {
                 <Row>
                     <Col size="md-6">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="driver" onClick={this.setDrivingStatus} checked />
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="driver" onClick={this.setDrivingStatus} defaultChecked />
                             <label class="form-check-label" for="exampleRadios1">
                                 Driver
                         </label>
@@ -214,6 +228,7 @@ class MapContainer extends Component {
                             carNumber = {this.state.clickedMarker.licencePlate}
                             id = {this.state.clickedMarker._id}
                             status = {this.state.clickedMarker.isDriver}
+                            
                         />
                     </Row>
                     
@@ -223,7 +238,7 @@ class MapContainer extends Component {
 
             </Container>
 
-        )
+        ]
     }
 }
 

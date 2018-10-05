@@ -10,7 +10,7 @@ import MyProfile from "./pages/MyProfile";
 const App = () => (
     <Router>
         <div>
-            <Nav />
+            {/* <Nav /> */}
             <Switch>
                 <Route exact path="/" component={Master}/>
                 <Route exact path="/login" component={Login}/>

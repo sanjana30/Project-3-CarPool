@@ -34,7 +34,12 @@ module.exports = {
                 res.json(dbModel);
             }).catch(err => res.status(422).json(err));
     },
-    
+    getName: function(req, res){
+        db.userSchema
+            .findById(req.tokenPayload._id)
+            .then((dbModel) => res.json(dbModel))
+            .catch((err) => res.status(422).json(err));
+    },
     update: function (req, res) {
         db.userSchema
             .findById(req.tokenPayload._id).select("-password").select("-__v")

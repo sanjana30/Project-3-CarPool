@@ -18,6 +18,9 @@ router.route("/details")
 router.route("/status")
     .put(usersController.updateStatus);
 
+router.route("/name")
+    .get(usersController.getName);
+
 // AuthenticationRoute
 
 router.post('/authenticate', function (req, res) {
