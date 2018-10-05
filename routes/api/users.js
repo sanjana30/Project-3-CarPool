@@ -14,7 +14,9 @@ router.route("/register")
 
 router.route("/details")
     .put(usersController.update);
-    
+
+router.route("/status")
+    .put(usersController.updateStatus);
 
 // AuthenticationRoute
 
