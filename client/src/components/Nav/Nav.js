@@ -3,12 +3,14 @@ import Logo from "../images/carpool_logo.png"
 const styles = {
     navStyle: {
         background: "white",
-        marginBottom: 20
+        // marginBottom: 20
     },
 
     imgStyle: {
-        width: "100px",
+        width: "150px",
         height: "50px",
+        verticalAlign: "middle",
+        borderStyle: "none",
     }
 }
 const Nav = () => (

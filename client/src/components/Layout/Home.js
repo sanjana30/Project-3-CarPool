@@ -3,9 +3,8 @@ import {Map1} from "../Custom";
 import {Container, Row, Col} from "../Grid";
 import {Input, FormBtn} from "../Form";
 import UserCard from "../UserCard";
-import Nav from "../NavDashboard";
+import NavDashboard from "../NavDashboard";
 import API from "../../utils/API";
-import NavDashboard from "../../components/NavDashboard"
 
 class MapContainer extends Component {
     state = {
@@ -162,9 +161,8 @@ class MapContainer extends Component {
 
     render() {
         return [
-            <Nav />,
+            <NavDashboard />,
             <Container fluid>
-                <NavDashboard/>
                 <Row>
                     <Col size="md-6">
 

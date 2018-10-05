@@ -14,16 +14,19 @@ const Master = () => (
 
     <div>
         <Nav/>
-        <div className="text-center">
+        <div>
+            <img src="https://images.pexels.com/photos/386025/pexels-photo-386025.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                 alt="logo"/>
+            <div className="text-center">
+                <button className="btn" style={styles.homeBtn}>
+                    <Link to="/login">Login</Link>
+                </button>
 
-            <button className="btn" style={styles.homeBtn}>
-                <Link to="/login">Login</Link>
-            </button>
+                <button className="btn" style={styles.homeBtn}>
+                    <Link to="/register">Register</Link>
+                </button>
 
-            <button className="btn" style={styles.homeBtn}>
-                <Link to="/register">Register</Link>
-            </button>
-
+            </div>
         </div>
     </div>
 );
