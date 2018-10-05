@@ -18,18 +18,20 @@ module.exports = {
     //         .find({_id: {$not: req.params.id}})
     //         .then(dbModel => res.json(dbModel))
     //         .catch(err => res.status(422).json(err));
-    findAll: function (req, res){        
+    findAll: function (req, res){
+        console.log("---------------------");
+        console.log(req.tokenPayload._id);
+        console.log("-----------------------")
         db.userSchema
-            .find({_id: {$not: "abc"}})
+            .find({_id: {$ne: req.tokenPayload._id}})
             .then((response) => res.json(response))
-            .catch(err => console.log(err));
+            .catch(err => console.log("----------"+err+"------------"));
     },
     findById: function (req, res) {
         db.userSchema
             .findById(req.tokenPayload._id).select("-password").select("-__v")
             .then((dbModel) => {
                 res.json(dbModel);
-                console.log("----------"+dbModel);
             }).catch(err => res.status(422).json(err));
     },
     
@@ -38,12 +40,24 @@ module.exports = {
             .findById(req.tokenPayload._id).select("-password").select("-__v")
             .then((dbModel) => {
                 res.json(dbModel);
-                console.log("----------"+dbModel);
                 db.userSchema
                 .findOneAndUpdate({_id: dbModel._id}, req.body)
                 .then(dbModel => {console.log(dbModel);res.json(dbModel)})
                 .catch(err => res.status(422).json(err))
             }).catch(err => res.status(422).json(err));
+        // db.userSchema
+        //     .findOneAndUpdate({_id: req.params.id}, req.body)
+        //     .then(dbModel => {console.log(dbModel);res.json(dbModel)})
+        //     .catch(err => res.status(422).json(err));
+    },
+
+    updateStatus: function (req, res) {
+        
+                db.userSchema
+                .findOneAndUpdate({_id: req.tokenPayload._id}, req.body)
+                .then(dbModel => {console.log(dbModel);res.json(dbModel)})
+                .catch(err => res.status(422).json(err));
+            
         // db.userSchema
         //     .findOneAndUpdate({_id: req.params.id}, req.body)
         //     .then(dbModel => {console.log(dbModel);res.json(dbModel)})
