@@ -24,6 +24,7 @@ module.exports = {
             .then((response) => res.json(response))
             .catch(err => console.log(err));
     },
+
     findById: function (req, res) {
         db.userSchema
             .findById(req.tokenPayload._id).select("-password").select("-__v")

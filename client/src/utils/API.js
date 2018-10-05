@@ -8,15 +8,15 @@ export default {
      *
      */
 
-    // getLoggedUserDetail: function () {
-    //     let token = sessionStorage.getItem('token');
-    //     let config = {
-    //         headers: {
-    //             Authorization: token,
-    //         }
-    //     };
-    //     return axios.get("/api/users/details", config);
-    // },
+    getLoggedUserDetail: function () {
+        let token = sessionStorage.getItem('token');
+        let config = {
+            headers: {
+                Authorization: token,
+            }
+        };
+        return axios.get("/api/users/details", config);
+    },
 
     loginUser: function (login) {
         return axios.post("/api/users/authenticate", login);
@@ -26,7 +26,7 @@ export default {
         return axios.post("/api/users/register", registerForm);
     },
 
-    addUserLocation: function(locationData){
+    addUserLocation: function (locationData) {
         let token = sessionStorage.getItem('token');
         let config = {
             headers: {
@@ -36,7 +36,7 @@ export default {
         return axios.put("/api/users/details", locationData, config);
     },
 
-    getOtherMarkers: function(){
+    getOtherMarkers: function () {
         let token = sessionStorage.getItem('token');
         let config = {
             headers: {

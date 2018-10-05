@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Map1 } from "../Custom";
-import { Container, Row, Col } from "../Grid";
-import { Input, FormBtn } from "../Form";
+import React, {Component} from "react";
+import {Map1} from "../Custom";
+import {Container, Row, Col} from "../Grid";
+import {Input, FormBtn} from "../Form";
 import API from "../../utils/API";
 import NavDashboard from "../../components/NavDashboard"
 
@@ -25,8 +25,8 @@ class MapContainer extends Component {
         //     })
         //     .catch(err => console.log(err));
         API.addUserLocation(location)
-                    .then(response => console.log(response))
-                    .catch(err => console.log(err));
+            .then(response => console.log(response))
+            .catch(err => console.log(err));
     };
     fetchOtherUsers = () => {
         API.getOtherMarkers(this.state.userId)
@@ -34,25 +34,25 @@ class MapContainer extends Component {
             .catch(err => console.log(err));
     };
     handleInputChange = (event) => {
-        this.setState({ [event.target.name]: event.target.value });
+        this.setState({[event.target.name]: event.target.value});
     };
-    
+
     handleFormSubmit = (event) => {
         event.preventDefault();
-        const newArr = this.state.markers;       
+        const newArr = this.state.markers;
         API.getGeoCode(this.state.source)
             .then((response) => {
-                
+
                 let sourceMarker = {
                     position: response.data.results[0].geometry.location
-                }
+                };
                 let sourcelocation = {
                     source: response.data.results[0].geometry.location
-                }
+                };
                 newArr.push(sourceMarker);
                 API.getGeoCode(this.state.destination)
                     .then(res => {
-                        
+
                         let destinationMarker = {
                             position: res.data.results[0].geometry.location
                         };
@@ -60,7 +60,7 @@ class MapContainer extends Component {
                         let destinationlocation = {
                             destination: res.data.results[0].geometry.location,
                         };
-                        this.setState({ usermarker: newArr });
+                        this.setState({usermarker: newArr});
                         this.updateUserInfo(sourcelocation);
                         this.updateUserInfo(destinationlocation);
                         this.fetchOtherUsers();
@@ -78,13 +78,14 @@ class MapContainer extends Component {
             height: 600
         }
     };
+
     render() {
         return (
             <Container fluid>
                 <NavDashboard/>
                 <Row>
                     <Col size="md-6">
-                        
+
                         <Input
                             placeholder="Source"
                             value={this.state.source}
@@ -92,9 +93,9 @@ class MapContainer extends Component {
                             name="source"
                         />
                     </Col>
-                
+
                     <Col size="md-6">
-                        
+
                         <Input
                             placeholder="Destination"
                             value={this.state.destination}
@@ -116,17 +117,17 @@ class MapContainer extends Component {
                 <Row>
                     <Col size="md-12">
                         <Map1
-                            containerElement={<div style={this.styles.containerstyle} />}
-                            mapElement={<div style={this.styles.mapstyle} />}
+                            containerElement={<div style={this.styles.containerstyle}/>}
+                            mapElement={<div style={this.styles.mapstyle}/>}
                             usermarker={this.state.usermarker}
                             onMarkerClick={this.handleMarkerClick}
                         />
                     </Col>
                 </Row>
                 {
-                    !this.state.userData ?<div>ABC</div> : <div></div>
+                    !this.state.userData ? <div>ABC</div> : <div></div>
                 }
-                
+
 
             </Container>
 
