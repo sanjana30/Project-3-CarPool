@@ -5,7 +5,7 @@ import Master from "./components/Master";
 import Login from "./pages/Login";
 import Registration from "./pages/Registration";
 import MyProfile from "./pages/MyProfile";
-
+import Error from "./pages/Error";
 const App = () => (
     <Router>
         <div>
@@ -15,6 +15,7 @@ const App = () => (
                 <Route exact path="/register" component={Registration}/>
                 <Route exact path="/dashboard" component={Home}/>
                 <Route exact path="/profile" component={MyProfile}/>
+                <Route component={Error}/>
             </Switch>
         </div>
     </Router>
