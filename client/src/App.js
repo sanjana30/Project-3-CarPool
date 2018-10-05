@@ -9,7 +9,6 @@ import MyProfile from "./pages/MyProfile";
 const App = () => (
     <Router>
         <div>
-            {/*<Nav/>*/}
             <Switch>
                 <Route exact path="/" component={Master}/>
                 <Route exact path="/login" component={Login}/>
