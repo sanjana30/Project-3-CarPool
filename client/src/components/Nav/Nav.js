@@ -1,16 +1,20 @@
-
 import React from "react";
-import Logo from "../images/logo.png"
+import Logo from "../images/carpool_logo.png"
 const styles = {
     navStyle: {
-        background: "#BFD8D2",
+        background: "white",
         marginBottom: 20
+    },
+
+    imgStyle: {
+        width: "100px",
+        height: "50px",
     }
 }
 const Nav = () => (
     <nav className="navbar navbar-light" style={styles.navStyle}>
         <a className="navbar-brand" href="#">
-            <img src="../images/logo.png" width="30" height="30" alt="logo" />
+            <img className="imgStyle" src={Logo} width="30" height="30" alt="logo"/>
         </a>
     </nav>
 );

@@ -1,10 +1,11 @@
 import React, {Component} from "react";
 import {withGoogleMap, GoogleMap, Marker, InfoWindow} from "react-google-maps"; 
+import Pin from "../images/marker.png";
 const Map1 = withGoogleMap(props => {
 
     // console.log(props.markers);
     return (
-            
+        
         <GoogleMap
             // ref={this.props.onMapLoad}
             defaultZoom = {8}
@@ -12,10 +13,16 @@ const Map1 = withGoogleMap(props => {
             // onClick = {this.props.onMapClick}
         >
         {props.usermarker.map((marker, index) =>  (
+            
              <Marker 
                     key={index}
                     position={marker.position}
-                    onClick={()=>props.onMarkerClick()}
+                    // onClick={()=>props.onMarkerClick()}
+                    icon = {{
+                        url: Pin,
+                        scaledSize: { width: 32, height: 32 }
+                    }}
+                    
             >
                 {/* {marker.showInfo && (
                     <InfoWindow onCloseClick={()=>props.onMarkerClose(marker)}>
@@ -27,7 +34,19 @@ const Map1 = withGoogleMap(props => {
             </Marker>
             
         )
-        )}       
+        )}  
+        {console.log(props.othermarkers)}
+        {props.othermarkers.map((marker) =>  (
+            
+            <Marker 
+                   key={marker._id}
+                   position={marker.source}
+                   onClick={()=>props.onMarkerClick(marker._id)}                  
+           >
+           </Marker>
+           
+       )
+       )}      
         </GoogleMap>
    
     )

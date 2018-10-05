@@ -18,10 +18,11 @@ const userSchema = new Schema({
             ref: 'role'
         }],
 source: { type: Object },
-destination: {type: Object}
+destination: {type: Object},
+isDriver: {type: Boolean, default: true}
 // destination: { type: String },
 // isOnline: { type: Boolean, default: true },
-// isDriving: { type: Boolean, default: true },
+
 // date: { type: Date, default: Date.now }
     })
 ;
