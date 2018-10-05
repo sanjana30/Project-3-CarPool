@@ -3,6 +3,7 @@ import { Map1 } from "../Custom";
 import { Container, Row, Col } from "../Grid";
 import { Input, FormBtn } from "../Form";
 import UserCard from "../UserCard";
+import Nav from "../NavDashboard";
 import API from "../../utils/API";
 
 class MapContainer extends Component {
@@ -14,9 +15,21 @@ class MapContainer extends Component {
         userId: "",
         userData: "",
         userDriving: true,
-        clickedMarker: ""
+        clickedMarker: "",
+        nameofuser: ""
     };
-
+    // getUserName = () => {
+    //     API.fetchUserName()
+    //         .then(res => {
+    //             console.log(res.data.name);
+    //             this.setState({nameofuser: res.data.name});
+    //         })
+    //         .catch(err => consol.log(err));
+    // }
+    // componentDidMount = () => {
+    //     this.getUserName();
+    // };
+    
     updateUserInfo = (location) => {
         // API.getLoggedUserDetail()
         //     .then(res =>{
@@ -144,7 +157,8 @@ class MapContainer extends Component {
         }
     };
     render() {
-        return (
+        return [
+            <Nav />,
             <Container fluid>
                 <Row>
                     <Col size="md-6">
@@ -224,7 +238,7 @@ class MapContainer extends Component {
 
             </Container>
 
-        )
+        ]
     }
 }
 
