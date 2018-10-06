@@ -1,12 +1,16 @@
 import React from "react";
+import "./Jumbotron.css";
+import Car from "../images/car.png"
 
-const Jumbotron = ({ children }) => (
-  <div
-    style={{ height: 300, clear: "both", paddingTop: 120, textAlign: "center" }}
-    className="jumbotron"
-  >
-    {children}
-  </div>
+const Jumbotron = ({children}) => (
+    <div>
+        <header className="headerstyle"> Car Pool
+        </header>
+        <div className="jumbotron">
+            <img src={Car} alt="logo" className="imgStyle"/>
+            {children}
+        </div>
+    </div>
 );
 
 export default Jumbotron;

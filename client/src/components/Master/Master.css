@@ -1,0 +1,43 @@
+.imgDiv {
+    background-repeat: no-repeat;
+    background-size: auto;
+    height: 100%;
+}
+
+.imgStyle {
+    width: 100%;
+}
+
+.headerstyle {
+    background-color: #ff7070;
+    height: 150px;
+    font-family: fantasy;
+    font-weight: bold;
+    font-size: 60px;
+    text-align: center;
+    padding-top: 50px;
+}
+
+footer {
+    background-color: black;
+    height: 250px;
+    opacity: 0.8;
+    margin: 0px;
+}
+
+.loginBtn {
+    background-color: black;
+    font-family: Chalkboard;
+    margin-top: 30px;
+    font-size: 25px;
+    /*color: antiquewhite;*/
+
+}
+
+.registerBtn {
+    background-color: black;
+    font-family: Chalkboard;
+    font-size: 25px;
+    color: whitesmoke;
+}
+

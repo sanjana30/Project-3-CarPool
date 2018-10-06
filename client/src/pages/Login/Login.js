@@ -47,12 +47,13 @@ class Login extends Component {
     render() {
         return (
 
-            <Container>
+            <div>
+                <Row>
+                    <Jumbotron>
+                    </Jumbotron>
+                </Row>
                 <Row>
                     <Col size="sm-12">
-                        <Jumbotron>
-                            <h1>Login</h1>
-                        </Jumbotron>
                         <form>
                             <label>username:</label>
                             <Input
@@ -75,14 +76,14 @@ class Login extends Component {
                                 // disabled={!(this.state.username && this.state.password)}
                                 onClick={this.handleFormSubmit}
                             >
-                                Search
+                                Login
                             </FormBtn>
                         </form>
                     </Col>
 
                 </Row>
 
-            </Container>
+            </div>
 
 
         )
