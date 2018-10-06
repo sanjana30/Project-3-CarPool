@@ -48,41 +48,40 @@ class Login extends Component {
         return (
 
             <div>
-                <Row>
-                    <Jumbotron>
-                    </Jumbotron>
-                </Row>
-                <Row>
-                    <Col size="sm-12">
-                        <form>
-                            <label>username:</label>
-                            <Input
-                                value={this.state.username}
-                                onChange={this.handleInputChange}
-                                name="username"
-                                id="username"
-                                placeholder="username (required)"
-                            />
-                            <label>password</label>
-                            <Input
-                                value={this.state.password}
-                                onChange={this.handleInputChange}
-                                name="password"
-                                id="password"
-                                placeholder="password (required)"
-                            />
 
-                            <FormBtn
-                                // disabled={!(this.state.username && this.state.password)}
-                                onClick={this.handleFormSubmit}
-                            >
-                                Login
-                            </FormBtn>
-                        </form>
-                    </Col>
+                <Jumbotron>
+                </Jumbotron>
 
-                </Row>
+                <Container>
+                    <form>
+                        <label></label>
+                        <Input
+                            value={this.state.username}
+                            onChange={this.handleInputChange}
+                            name="username"
+                            id="username"
+                            placeholder="username"
+                        />
+                        <label></label>
+                        <Input
+                            value={this.state.password}
+                            onChange={this.handleInputChange}
+                            name="password"
+                            id="password"
+                            placeholder="password"
+                        />
 
+                        <FormBtn
+                            // disabled={!(this.state.username && this.state.password)}
+                            onClick={this.handleFormSubmit}
+                        >
+                            Login
+                        </FormBtn>
+                    </form>
+                    <footer>
+
+                    </footer>
+                </Container>
             </div>
 
 

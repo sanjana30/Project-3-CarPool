@@ -10,17 +10,17 @@
 
 .headerstyle {
     background-color: #ff7070;
-    height: 150px;
+    height: 140px;
     font-family: fantasy;
     font-weight: bold;
     font-size: 60px;
     text-align: center;
-    padding-top: 50px;
+    padding-top: 40px;
 }
 
 footer {
     background-color: black;
-    height: 250px;
+    height: 150px;
     opacity: 0.8;
     margin: 0px;
 }

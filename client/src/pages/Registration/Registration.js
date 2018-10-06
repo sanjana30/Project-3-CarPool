@@ -4,7 +4,6 @@ import API from "../../utils/API";
 import Jumbotron from "../../components/Jumbotron";
 import {Col, Row, Container} from "../../components/Grid";
 import {Input, FormBtn} from "../../components/Form";
-import Nav from "../../components/Nav";
 
 class Registration extends Component {
     state = {
@@ -51,103 +50,106 @@ class Registration extends Component {
 
     render() {
         return (
-            <Container>
-                < Nav/>
-                <Row>
-                    <Col size="sm-12">
-                        <Jumbotron>
-                            <h1>Registration</h1>
-                        </Jumbotron>
-                        <form>
-                            <label>Username</label>
-                            <Input
-                                value={this.state.username}
-                                onChange={this.handleInputChange}
-                                name="username"
-                                id="username"
-                                placeholder="username (required)"
-                            />
-                            <label>Name</label>
-                            <Input
-                                value={this.state.name}
-                                onChange={this.handleInputChange}
-                                name="name"
-                                id="name"
-                                placeholder="name (required)"
-                            />
-                            <label>DOB</label>
-                            <Input
-                                value={this.state.dob}
-                                onChange={this.handleInputChange}
-                                name="dob"
-                                id="dob"
-                                placeholder="dob (required)"
-                            />
-                            <label>Phone</label>
-                            <Input
-                                value={this.state.phone}
-                                onChange={this.handleInputChange}
-                                name="phone"
-                                id="phone"
-                                placeholder="phone (required)"
-                            />
+            <div class="card">
+                {/*<Row>*/}
+                    {/*<Jumbotron>*/}
+                    {/*</Jumbotron>*/}
+                {/*</Row>*/}
 
-                            <label>Do you own a car?
-                            </label>
+                <Container>
+                    <Row>
+                        <Col size="sm-12">
+                            <form>
+                                {/*<label>Username</label>*/}
+                                <Input
+                                    value={this.state.username}
+                                    onChange={this.handleInputChange}
+                                    name="username"
+                                    id="username"
+                                    placeholder="username (required)"
+                                />
+                                <label>Name</label>
+                                <Input
+                                    value={this.state.name}
+                                    onChange={this.handleInputChange}
+                                    name="name"
+                                    id="name"
+                                    placeholder="name (required)"
+                                />
+                                <label>DOB</label>
+                                <Input
+                                    value={this.state.dob}
+                                    onChange={this.handleInputChange}
+                                    name="dob"
+                                    id="dob"
+                                    placeholder="dob (required)"
+                                />
+                                <label>Phone</label>
+                                <Input
+                                    value={this.state.phone}
+                                    onChange={this.handleInputChange}
+                                    name="phone"
+                                    id="phone"
+                                    placeholder="phone (required)"
+                                />
 
-                            <Input type="radio" name="isCarOwner"
-                                   onChange={this.handleInputChange}
-                                   value="true"/>Yes
-                            <Input type="radio" name="isCarOwner"
-                                   onChange={this.handleInputChange}
-                                   value="false"/>No
+                                <label>Do you own a car?
+                                </label>
 
-                            <br></br>
-                            <label>Driver Licence</label>
-                            <Input
-                                value={this.state.driverLicence}
-                                onChange={this.handleInputChange}
-                                name="driverLicence"
-                                id="driverLicence"
-                                placeholder="driverLicence (required)"
-                            />
-                            <label>Licence Plate</label>
-                            <Input
-                                value={this.state.licencePlate}
-                                onChange={this.handleInputChange}
-                                name="licencePlate"
-                                id="licencePlate"
-                                placeholder="licencePlate (required)"
-                            />
+                                <Input type="radio" name="isCarOwner"
+                                       onChange={this.handleInputChange}
+                                       value="true"/>Yes
+                                <Input type="radio" name="isCarOwner"
+                                       onChange={this.handleInputChange}
+                                       value="false"/>No
 
-                            <label>Password</label>
-                            <Input
-                                value={this.state.password}
-                                onChange={this.handleInputChange}
-                                name="password"
-                                id="password"
-                                placeholder="password (required)"
-                            />
-                            <label>Confirm Password</label>
-                            <Input
-                                //value={this.state.password}
-                                // onChange={this.handleInputChange}
-                                // name="password"
-                                // id="password"
-                                placeholder="password (required)"
-                            />
+                                <br></br>
+                                <label>Driver Licence</label>
+                                <Input
+                                    value={this.state.driverLicence}
+                                    onChange={this.handleInputChange}
+                                    name="driverLicence"
+                                    id="driverLicence"
+                                    placeholder="driverLicence (required)"
+                                />
+                                <label>Licence Plate</label>
+                                <Input
+                                    value={this.state.licencePlate}
+                                    onChange={this.handleInputChange}
+                                    name="licencePlate"
+                                    id="licencePlate"
+                                    placeholder="licencePlate (required)"
+                                />
 
-                            <SubmitBtn
-                                onClick={this.handleFormSubmit}
-                            >
-                                Search
-                            </SubmitBtn>
-                        </form>
-                    </Col>
+                                <label>Password</label>
+                                <Input
+                                    value={this.state.password}
+                                    onChange={this.handleInputChange}
+                                    name="password"
+                                    id="password"
+                                    placeholder="password (required)"
+                                />
+                                <label>Confirm Password</label>
+                                <Input
+                                    //value={this.state.password}
+                                    // onChange={this.handleInputChange}
+                                    // name="password"
+                                    // id="password"
+                                    placeholder="password (required)"
+                                />
 
-                </Row>
+                                <SubmitBtn
+                                    onClick={this.handleFormSubmit}
+                                >
+                                    Search
+                                </SubmitBtn>
+                            </form>
+                        </Col>
 
-            </Container>
+                    </Row>
+
+                </Container>
+            </div>
         )
 
     }

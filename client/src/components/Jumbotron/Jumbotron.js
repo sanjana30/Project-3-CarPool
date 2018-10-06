@@ -2,14 +2,14 @@ import React from "react";
 import "./Jumbotron.css";
 import Car from "../images/car.png"
 
-const Jumbotron = ({children}) => (
+const Jumbotron = () => (
     <div>
-        <header className="headerstyle"> Car Pool
+        <header className="loginHeader"> Car Pool
         </header>
-        <div className="jumbotron">
-            <img src={Car} alt="logo" className="imgStyle"/>
-            {children}
+        <div className="imgDivs">
+            <img src={Car} alt="logo" className="imgStyles"/>
         </div>
+
     </div>
 );
 
