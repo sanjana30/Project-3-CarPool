@@ -1,0 +1,22 @@
+.container {
+    height: 100%;
+    width:100%;
+}
+.imageclass {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: fill;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    
+}
+
+.errortext {
+    position: fixed;
+    top: 20%;
+    left: 45%;
+    z-index: 100;
+}
+
+
