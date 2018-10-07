@@ -2,9 +2,8 @@ import React from "react";
 
 const styles = {
     containerStyle: {
-        background: "black",
-        opacity: 0.8,
-        // height: "300px"
+        background: "#323232",
+        color: "white",
     }
 }
 export const Container = ({fluid, children}) => (

@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import API from "../../utils/API";
 import Jumbotron from "../../components/Jumbotron";
-import {Col, Row, Container} from "../../components/Grid";
-import {Input, FormBtn} from "../../components/Form";
+import {Input, FormBtn, Container} from "../../components/Login";
 
 class Login extends Component {
     state = {
@@ -70,17 +69,18 @@ class Login extends Component {
                             id="password"
                             placeholder="password"
                         />
-
+                        <br/>
                         <FormBtn
-                            // disabled={!(this.state.username && this.state.password)}
                             onClick={this.handleFormSubmit}
                         >
                             Login
                         </FormBtn>
                     </form>
-                    <footer>
 
-                    </footer>
+                    <button className="btn goBacklogin">
+                        <a href="/" style={{color: "#72A3A4"}}>Go Back?</a>
+                    </button>
+
                 </Container>
             </div>
 

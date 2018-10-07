@@ -31,8 +31,8 @@ class NavDashboard extends Component {
 
     styles = {
         navStyle: {
-            background: "#BFD8D2",
-            marginBottom: 20
+            background: " #ff7070",
+            // marginBottom: 20
         },
         navdropdown: {
             float: "right",
