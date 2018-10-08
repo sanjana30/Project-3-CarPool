@@ -18,37 +18,27 @@ class MapContainer extends Component {
         clickedMarker: "",
         nameofuser: ""
     };
-    // getUserName = () => {
-    //     API.fetchUserName()
-    //         .then(res => {
-    //             console.log(res.data.name);
-    //             this.setState({nameofuser: res.data.name});
-    //         })
-    //         .catch(err => consol.log(err));
-    // }
-    // componentDidMount = () => {
-    //     this.getUserName();
-    // };
+   
+    componentDidMount =() => {
+        
+            API.fetchUserName()
+                .then(res => {
+                    this.setState({userData: res.data}, ()=>console.log(this.state.userData));
+                })
+                .catch(err => console.log(err));
+        
+    };    
 
     updateUserInfo = (location) => {
-        // API.getLoggedUserDetail()
-        //     .then(res =>{
-        //         console.log(res.data._id);
-        //         this.setState({userId: res.data._id})
-        //         API.addUserLocation(res.data._id, location)
-        //             .then(response => console.log(response))
-        //             .catch(err => console.log(err));
-        //     })
-        //     .catch(err => console.log(err));
         API.addUserLocation(location)
-            .then(response => console.log(response))
+            .then(response => console.log("response"))
             .catch(err => console.log(err));
     };
     fetchOtherUsers = () => {
         let array = this.state.markers;
         API.getOtherMarkers()
             .then(response => {
-                console.log(response);
+                console.log("response");
 
                 response.data.map(item => {
 
@@ -68,8 +58,8 @@ class MapContainer extends Component {
                                             console.log(result.data.rows[0].elements[0].distance.value);
                                             if (result.data.rows[0].elements[0].distance.value <= 20000) {
                                                 array.push(item);
-                                                console.log(array);
-                                                this.setState({markers: array}, () => console.log(this.state.markers));
+                                                console.log("array");
+                                                this.setState({markers: array}, () => console.log("this.state.markers"));
                                             }   //destination distance check closed
                                         })
                                         .catch(err => console.log(err));
@@ -139,7 +129,7 @@ class MapContainer extends Component {
                         };
 
 
-                        this.setState({usermarker: newArr}, () => console.log(this.state.usermarker));
+                        this.setState({usermarker: newArr}, () => console.log("this.state.usermarker"));
 
                         this.updateUserInfo(sourcelocation);
                         this.updateUserInfo(destinationlocation);
@@ -156,6 +146,9 @@ class MapContainer extends Component {
         },
         mapstyle: {
             height: 600
+        },
+        radioLabelStyle: {
+            marginRight: 45
         }
     };
 
@@ -191,14 +184,14 @@ class MapContainer extends Component {
 
                             <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
                                    value="driver" onClick={this.setDrivingStatus} defaultChecked/>
-                            <label class="form-check-label" for="exampleRadios1">
+                            <label class="form-check-label" for="exampleRadios1" style={this.styles.radioLabelStyle}>
                                 Driver
                             </label>
-                        </div>
-                        <div class="form-check">
+                        {/* </div>
+                        <div class="form-check"> */}
                             <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
                                    value="rider" onClick={this.setDrivingStatus}/>
-                            <label class="form-check-label" for="exampleRadios2">
+                            <label class="form-check-label" for="exampleRadios2" style={this.styles.radioLabelStyle}>
                                 Rider
                             </label>
                         </div>
@@ -207,7 +200,7 @@ class MapContainer extends Component {
                     <Col size="md-6">
                         <FormBtn
                             disabled={!(this.state.source && this.state.destination)}
-                            onClick={this.handleFormSubmit}
+                            onClick={this.handleFormSubmit} style={this.styles.submitStyle}
                         >
                             Submit
                         </FormBtn>
@@ -236,7 +229,10 @@ class MapContainer extends Component {
                                 carNumber={this.state.clickedMarker.licencePlate}
                                 id={this.state.clickedMarker._id}
                                 status={this.state.clickedMarker.isDriver}
-
+                                userNumber={this.state.userData.phone}
+                                userName={this.state.userData.name}
+                                userDriverLicense={this.state.userData.driverLicence}
+                                userCarNumber={this.state.userData.licencePlate}
                             />
                         </Row>
 
