@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2ac785a-5645-4f99-9b4e-8f3bde15aecd" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -803,12 +802,12 @@
       <workItem from="1538878018398" duration="10969000" />
       <workItem from="1538944288102" duration="195000" />
       <workItem from="1538969055772" duration="356000" />
-      <workItem from="1539011130311" duration="3462000" />
+      <workItem from="1539011130311" duration="3527000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132070000" />
+    <option name="totallyTimeSpent" value="132135000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
