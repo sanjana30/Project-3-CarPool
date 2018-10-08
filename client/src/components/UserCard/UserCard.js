@@ -1,10 +1,20 @@
 import React from "react";
 
+const styles = {
+    cardStyle : {
+        width: "100%",
+        marginTop: 20,
+        marginLeft: 10,
+        marginRight: 10,
+        background: "#FDB99D"
+    }
+}
 
 // The ...props means, spread all of the passed props onto this element
 // That way we don't have to define them all individually
-const UserCard = props => (
-    <div className="card">
+const UserCard = props => (    
+    <div className="card" style={styles.cardStyle}>
+        {console.log(props)}
         <div className="card-header">
             {props.status ? "Driver" : "Rider"}
         </div>
