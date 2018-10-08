@@ -1,33 +1,30 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import Nav from "../Nav"
-
-const styles = {
-
-    homeBtn: {
-        backgroundColor: "blue",
-        marginLeft: 10
-    }
-}
+import Car from "../images/car.png"
+import "./Master.css";
 
 const Master = () => (
 
     <div>
-        <Nav/>
-        <div>
-            <img src="https://images.pexels.com/photos/386025/pexels-photo-386025.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                 alt="logo"/>
-            <div className="text-center">
-                <button className="btn" style={styles.homeBtn}>
-                    <Link to="/login">Login</Link>
-                </button>
-
-                <button className="btn" style={styles.homeBtn}>
-                    <Link to="/register">Register</Link>
-                </button>
-
-            </div>
+        <header className="headerstyle"> Car Pool
+        </header>
+        <div className="imgDiv">
+            <img src={Car} alt="logo" className="imgStyle"/>
         </div>
+        <footer className="footer">
+            <div className="text-center">
+                <button className="btn loginBtn">
+                    <Link to="/login" style={{color: "#72A3A4"}}>Login</Link>
+                </button>
+
+                <br/>
+                <button className="btn registerBtn">
+                    <Link to="/register" style={{color: "#72A3A4"}}>Register</Link>
+                </button>
+            </div>
+
+        </footer>
+
     </div>
 );
 

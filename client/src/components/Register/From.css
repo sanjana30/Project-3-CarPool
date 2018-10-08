@@ -1,0 +1,62 @@
+
+.inputStyle {
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: solid #2A878C;
+    background-color: transparent;
+    color: white;
+    font-size: 20px;
+}
+
+.inputStyle::placeholder {
+    color:  antiquewhite;
+}
+
+.showDiv {
+    display: block;
+}
+
+.hideDiv {
+    display: none;
+}
+
+.marginStyle {
+    marginTop: 20px;
+}
+
+.btnStyle {
+    margin-top: 20px;
+    margin-left: 130px;
+    background: #72A3A4;
+    margin-bottom: 10px;
+}
+
+.containerStyle {
+    background: #323232;
+    color: white;
+    height: 700px
+}
+
+.loginHeader {
+    background-color: #ff7070;
+    height: 70px;
+    font-family: fantasy;
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.goBackBtn {
+    background-color:  #323232;
+    font-family: Chalkboard;
+    font-size: 25px;
+    color: whitesmoke;
+    margin-left: 100px ;
+}
+
+label{
+    color: antiquewhite;
+    font-size: 20px;
+}

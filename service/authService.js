@@ -10,14 +10,23 @@ class AuthService {
      */
     authenticate(username, password, authCallback) {
         const that = this;
-        db.userSchema.findOne({username: username, password: password}, function (err, dbUser) {
+        db.userSchema.findOne({username: username}, function (err, dbUser) {
             if (err) {
                 return authCallback(err);
             }
-            console.log(dbUser);
             if (dbUser && dbUser.username) {
-                that.createToken(dbUser, function (token) {
-                    return authCallback(null, token, dbUser);
+                dbUser.comparePassword(password, (error, isMatch) => {
+                    if (error) {
+                        return authCallback('Invalid Password');
+                    } else {
+                        if (isMatch === true) {
+                            that.createToken(dbUser, function (token) {
+                                return authCallback(null, token, dbUser);
+                            });
+                        } else {
+                            return authCallback('Invalid Password');
+                        }
+                    }
                 });
             } else {
                 return authCallback('User not found');

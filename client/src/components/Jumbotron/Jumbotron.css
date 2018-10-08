@@ -1,0 +1,28 @@
+.imgDivs {
+    background-repeat: no-repeat;
+    background-size: auto;
+    height: 100%;
+
+}
+
+.imgStyles {
+    width: 100%;
+
+}
+
+.loginHeader {
+    background-color: #ff7070;
+    height: 70px;
+    font-family: fantasy;
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+footer{
+    background-color: black;
+    height: 320px;
+    opacity: 0.8;
+    margin: 0px;
+}

@@ -1,0 +1,19 @@
+.boxstyle {
+    borderTop: 0;
+    borderLeft: 0;
+    borderRight: 0;
+    background: transparent;
+    color: red;
+}
+
+.showDiv {
+    display: block;
+}
+
+.hideDiv {
+    display: none;
+}
+
+.marginStyle {
+    marginTop: 20px;
+}

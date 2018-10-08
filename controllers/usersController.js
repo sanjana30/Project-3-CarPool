@@ -18,14 +18,14 @@ module.exports = {
     //         .find({_id: {$not: req.params.id}})
     //         .then(dbModel => res.json(dbModel))
     //         .catch(err => res.status(422).json(err));
-    findAll: function (req, res){
+    findAll: function (req, res) {
         console.log("---------------------");
         console.log(req.tokenPayload._id);
         console.log("-----------------------")
         db.userSchema
             .find({_id: {$ne: req.tokenPayload._id}})
             .then((response) => res.json(response))
-            .catch(err => console.log("----------"+err+"------------"));
+            .catch(err => console.log("----------" + err + "------------"));
     },
 
     findById: function (req, res) {
@@ -35,7 +35,7 @@ module.exports = {
                 res.json(dbModel);
             }).catch(err => res.status(422).json(err));
     },
-    getName: function(req, res){
+    getName: function (req, res) {
         db.userSchema
             .findById(req.tokenPayload._id)
             .then((dbModel) => res.json(dbModel))
@@ -47,9 +47,12 @@ module.exports = {
             .then((dbModel) => {
                 res.json(dbModel);
                 db.userSchema
-                .findOneAndUpdate({_id: dbModel._id}, req.body)
-                .then(dbModel => {console.log(dbModel);res.json(dbModel)})
-                .catch(err => res.status(422).json(err))
+                    .findOneAndUpdate({_id: dbModel._id}, req.body)
+                    .then(dbModel => {
+                        console.log(dbModel);
+                        res.json(dbModel)
+                    })
+                    .catch(err => res.status(422).json(err))
             }).catch(err => res.status(422).json(err));
         // db.userSchema
         //     .findOneAndUpdate({_id: req.params.id}, req.body)
@@ -58,12 +61,15 @@ module.exports = {
     },
 
     updateStatus: function (req, res) {
-        
-                db.userSchema
-                .findOneAndUpdate({_id: req.tokenPayload._id}, req.body)
-                .then(dbModel => {console.log(dbModel);res.json(dbModel)})
-                .catch(err => res.status(422).json(err));
-            
+
+        db.userSchema
+            .findOneAndUpdate({_id: req.tokenPayload._id}, req.body)
+            .then(dbModel => {
+                console.log(dbModel);
+                res.json(dbModel)
+            })
+            .catch(err => res.status(422).json(err));
+
         // db.userSchema
         //     .findOneAndUpdate({_id: req.params.id}, req.body)
         //     .then(dbModel => {console.log(dbModel);res.json(dbModel)})
@@ -78,6 +84,7 @@ module.exports = {
             // Get roles from DB for Driver and rider
             function (callback) {
                 db.roleSchema.find().then(function (records) {
+                    result.isCarOwner = result.isCarOwner ? result.isCarOwner.value : '';
                     if (result.isCarOwner === 'true') {
                         for (let record of records) {
                             if (record.role == "DRIVER" || record.role == "RIDER")
@@ -121,7 +128,7 @@ module.exports = {
         });
     },
 
-    
+
     delete: function (req, res) {
         db.userSchema
             .findById({_id: req.params.id})

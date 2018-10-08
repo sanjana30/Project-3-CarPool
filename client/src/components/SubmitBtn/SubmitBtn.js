@@ -5,7 +5,7 @@ import "./SubmitBtn.css";
 // That way we don't have to define them all individually
 const SubmitBtn = props => (
   
-    <button type="button" className="btn btn-primary" {...props}>Submit</button>
+    <button type="button" className="btn submitBtn" {...props}>Submit</button>
   
 );
 
