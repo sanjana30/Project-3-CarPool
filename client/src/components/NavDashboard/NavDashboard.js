@@ -31,12 +31,12 @@ class NavDashboard extends Component {
 
     styles = {
         navStyle: {
-            background: " #ff7070",
+            background: " #FF8787",
             // marginBottom: 20
         },
         navdropdown: {
             float: "right",
-            color: "#e74944",
+            color: "#FF8787",
             flexDirection: "row-reverse" 
         }
     };

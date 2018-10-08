@@ -48,7 +48,7 @@
         <entry file="file://$PROJECT_DIR$/models/user.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="35" lean-forward="true" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="35" />
+              <caret line="2" column="35" lean-forward="false" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -150,7 +150,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/src/components/MyProfile/index.js" />
         <option value="$PROJECT_DIR$/client/src/components/MyProfile/MyProfile.js" />
         <option value="$PROJECT_DIR$/client/src/pages/MyProfile/MyProfile.js" />
         <option value="$PROJECT_DIR$/client/src/pages/Dashboard/Dashboard.js" />
@@ -201,6 +200,7 @@
         <option value="$PROJECT_DIR$/client/src/components/Login/From.css" />
         <option value="$PROJECT_DIR$/models/user.js" />
         <option value="$PROJECT_DIR$/client/build/index.html" />
+        <option value="$PROJECT_DIR$/client/build/asset-manifest.json" />
       </list>
     </option>
   </component>
@@ -812,12 +812,12 @@
       <workItem from="1538878018398" duration="10969000" />
       <workItem from="1538944288102" duration="195000" />
       <workItem from="1538969055772" duration="356000" />
-      <workItem from="1539011130311" duration="3024000" />
+      <workItem from="1539011130311" duration="3263000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131632000" />
+    <option name="totallyTimeSpent" value="131871000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -842,7 +842,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921812" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29903978" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5555556" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26474822" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1186,7 +1186,7 @@
     <entry file="file://$PROJECT_DIR$/models/user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="35" lean-forward="true" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="35" />
+          <caret line="2" column="35" lean-forward="false" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -1211,10 +1211,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>

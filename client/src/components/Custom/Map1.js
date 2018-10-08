@@ -35,7 +35,7 @@ const Map1 = withGoogleMap(props => {
             
         )
         )}  
-        {console.log(props.othermarkers)}
+        {console.log("-----------------------\n"+JSON.stringify(props.othermarkers)+"-------------------------------")}
         {props.othermarkers.map((marker) =>  (
             
             <Marker 

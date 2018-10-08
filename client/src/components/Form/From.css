@@ -1,7 +1,7 @@
 .boxstyle {
-    borderTop: 0;
-    borderLeft: 0;
-    borderRight: 0;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
     background: transparent;
     color: red;
 }
@@ -15,5 +15,10 @@
 }
 
 .marginStyle {
-    marginTop: 20px;
+    margin-top: 20px;
+}
+
+.inputStyle {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
