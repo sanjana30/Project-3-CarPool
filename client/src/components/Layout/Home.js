@@ -142,20 +142,25 @@ class MapContainer extends Component {
     };
     styles = {
         containerstyle: {
-            height: 600
+            maxHeight: 400,
+            marginBottom: 10
         },
         mapstyle: {
-            height: 600
+            height: 400
         },
         radioLabelStyle: {
             marginRight: 45
+        },
+        maincontainer : {
+            paddingBottom: 100,
+            overflow: "scroll"
         }
     };
 
     render() {
         return [
             <NavDashboard />,
-            <Container fluid>
+            <Container fluid style={this.styles.maincontainer}>
                 <Row>
                     <Col size="md-6">
 
@@ -222,6 +227,7 @@ class MapContainer extends Component {
                     this.state.clickedMarker ?
 
                         <Row>
+                            <Col size="md-12">
                             <UserCard
                                 name={this.state.clickedMarker.name}
                                 phone={this.state.clickedMarker.phone}
@@ -234,6 +240,7 @@ class MapContainer extends Component {
                                 userDriverLicense={this.state.userData.driverLicence}
                                 userCarNumber={this.state.userData.licencePlate}
                             />
+                            </Col>
                         </Row>
 
                         : <Row></Row>

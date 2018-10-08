@@ -4,6 +4,9 @@ const styles = {
     containerStyle: {
         background: "#323232",
         color: "white",
+        overflow: "scroll",
+        paddingBottom: 50,
+        paddingTop: 30
     }
 }
 export const Container = ({fluid, children}) => (

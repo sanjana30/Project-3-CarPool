@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route, withRouter } from 'react-router-dom';
 import "./NavDashboard.css";
 import { Input, FormBtn } from "../../components/Form";
-import Logo from "../images/resized-logo.png";
+import Logo from "../images/logo.jpg";
 import API from "../../utils/API";
 
 class NavDashboard extends Component {
@@ -46,7 +46,7 @@ class NavDashboard extends Component {
         return (
             <nav className="navbar navbar-expand-lg navbar-light" style={this.styles.navStyle}>
                 <a className="navbar-brand" href="#">
-                    <img src={Logo} width="30" height="30" alt="logo" />
+                    <img src={Logo} width="30" height="100%" alt="logo" className="img-responsive" />
                 </a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
