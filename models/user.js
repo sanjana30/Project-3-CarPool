@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt-nodejs');
 const SALT_WORK_FACTOR = 10;
 
 // User Login and Registration Details
@@ -69,7 +69,7 @@ userSchema.pre('save', function (next) {
         }
 
         // hash the password using our new salt
-        bcrypt.hash(user.password, salt, function (err, hash) {
+        bcrypt.hash(user.password, salt, null, function (err, hash) {
             if (err) {
                 return next(err);
             }
