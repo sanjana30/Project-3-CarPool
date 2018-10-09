@@ -104,6 +104,12 @@ class MapContainer extends Component {
 
     };
 
+    handleMessageSending = (name, number) => {
+        alert(`Message sent to:
+        Name: ${name}
+        Phone: ${number}`);
+    }
+
     handleFormSubmit = (event) => {
         event.preventDefault();
         const newArr = this.state.usermarker;
@@ -239,6 +245,7 @@ class MapContainer extends Component {
                                 userName={this.state.userData.name}
                                 userDriverLicense={this.state.userData.driverLicence}
                                 userCarNumber={this.state.userData.licencePlate}
+                                sendMessage ={this.handleMessageSending}
                             />
                             </Col>
                         </Row>
