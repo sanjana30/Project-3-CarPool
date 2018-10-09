@@ -36,37 +36,30 @@ class NavDashboard extends Component {
         },
         navdropdown: {
             float: "right",
-            color: "#FF8787",
-            flexDirection: "row-reverse" 
+            color: "#333333",
+            textAlign: "left"
+            //flexDirection: "row-reverse" 
         }
     };
 
 
     render() {
         return (
-            <nav className="navbar navbar-expand-lg navbar-light" style={this.styles.navStyle}>
+            <nav class="navbar navbar-expand-lg navbar-light    " style={this.styles.navStyle}>
                 <a className="navbar-brand" href="#">
-                    <img src={Logo} width="30" height="100%" alt="logo" className="img-responsive" />
+                    <img src={Logo} width="30" height="100%" alt="logo" className="img-responsive"/>
                 </a>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="buttonStyle" >{this.state.nameofuser}</span>
                 </button>
-                <div className="collapse navbar-collapse" id="navbarNavDropdown" style={this.styles.navdropdown}>
+                <div className="collapse navbar-collapse" id="navbarNav" style={this.styles.navdropdown}>
                     <ul className="navbar-nav" style={this.styles.navdropdown}>
-                        <li className="navdropdown nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                {this.state.nameofuser}
-                            </a>
-                            <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a className="dropdown-item" onClick={this.handleUserProfile}>My
-                                    Profile</a>
-                                {/*<a class="dropdown-item" href="#"></a>*/}
-                                <a className="dropdown-item" onClick={this.handleLogout}>Logout</a>
-                            </div>
+                        <li className="nav-item active">
+                            <a className="dropdown-item" onClick={this.handleUserProfile}>My Profile</a>
                         </li>
+                        <li className="nav-item">
+                            <a className="dropdown-item" onClick={this.handleLogout}>Logout</a></li>
                     </ul>
                 </div>
             </nav>

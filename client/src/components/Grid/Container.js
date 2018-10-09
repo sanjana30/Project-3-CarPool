@@ -5,7 +5,7 @@ const styles = {
         background: "#323232",
         color: "white",
         overflow: "scroll",
-        paddingBottom: 50,
+        paddingBottom: 500,
         paddingTop: 30
     }
 }

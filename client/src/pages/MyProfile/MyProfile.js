@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import API from "../../utils/API";
 import {Col, Row, Container} from "../../components/Grid";
+import NavDashboard from '../../components/NavDashboard/NavDashboard';
 
 class MyProfile extends Component {
     state = {
@@ -31,40 +32,56 @@ class MyProfile extends Component {
         ).catch(err => console.log(err));
     };
 
-    render() {
-        return (
+    styles = {
+        containerstyle : {
+            height: "100%"
+        },
+        colstyle : {
+            textAlign: "center"
+        }
+    }
 
-            <Container>
-                <h1>My Profile
-                </h1>
+    render() {
+        return [
+            <NavDashboard />,
+            <Container style={this.styles.containerstyle}>
+                <h2 style={this.styles.colstyle}>My Profile
+                </h2>
                 <Row>
                     <Col size="sm-12">
-                        <label>Username :</label>
+                        <label>Username :   </label>
                         {this.state.username}
                     </Col>
                     <Col size="sm-12">
-                        <label>Name :</label>
+                        <label>Name :   </label>
                         {this.state.name}
                     </Col>
                     <Col size="sm-12">
-                        <label>Date-Of-Birth :</label>
+                        <label>Date-Of-Birth :  </label>
                         {this.state.dob}
                     </Col>
                     <Col size="sm-12">
-                        <label>Phone :</label>
+                        <label>Phone :  </label>
                         {this.state.phone}
                     </Col>
                     <Col size="sm-12">
-                        <label>Driver's Licence :</label>
+                        <label>Driver's License # : </label>
                         {this.state.driverLicence}
                     </Col>
                     <Col size="sm-12">
-                        <label>Licence Plate :</label>
-                        {this.state.licencePlate}
+                        <label>Licence Plate #:  </label>
+                        {this.state.licencePlate ? this.state.licencePlate : "Not Specified"}
+                    </Col>
+                </Row>
+                <Row>
+                    <Col size="sm-12" style={this.styles.colstyle}>
+                        <button className="btn goBackBtn">
+                            <a href="/dashboard" style={{color: "#72A3A4"}}>Go Back?</a>
+                        </button>
                     </Col>
                 </Row>
             </Container>
-        )
+        ]
     }
 }
 

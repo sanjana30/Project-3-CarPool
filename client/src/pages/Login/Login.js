@@ -68,6 +68,7 @@ class Login extends Component {
                             name="password"
                             id="password"
                             placeholder="password"
+                            type="password"
                         />
                         <br/>
                         <FormBtn
