@@ -37,7 +37,7 @@ const UserCard = props => (
                 : ""                
             }
           
-            <a href="#" class="btn" style={styles.buttonStyle}>Connect</a>
+            <a href="#" class="btn" style={styles.buttonStyle} onClick={()=>props.sendMessage(props.userName, props.userNumber)}>Connect</a>
         </div>
     </div>
 
