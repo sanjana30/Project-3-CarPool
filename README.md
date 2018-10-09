@@ -3,6 +3,9 @@ Deployed Link: **https://pure-inlet-79485.herokuapp.com/**
 
 Car pooling app that allows user to find and share rides with drivers and riders near them
 
+[Find the Presentation here](https://pure-inlet-79485.herokuapp.com/)
+
+
 ## Team : 
   1. Jyoti Kumari
   2. Sanjana Tripathi
