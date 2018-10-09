@@ -123,9 +123,9 @@ class Registration extends Component {
                                     placeholder="phone *"
                                 />
                                 <br/>
-                                <label>do you have a car? </label>
+                                <label>do you have a car?
                                 <Select className="boxstyle" options={options} onChange={this.handleChange}>
-                                    Do you have a car? </Select>
+                                    </Select> </label>
                                 <br/>
                                 <Input
                                     value={this.state.driverLicence}
@@ -146,6 +146,7 @@ class Registration extends Component {
 
                                 {/*<label>Password</label>*/}
                                 <Input
+                                    type="password"
                                     value={this.state.password}
                                     onChange={this.handleInputChange}
                                     name="password"
@@ -154,6 +155,7 @@ class Registration extends Component {
                                 />
                                 {/*<label>Confirm Password</label>*/}
                                 <Input
+                                    type="password"
                                     value={this.state.confirmPassword}
                                     onChange={this.handleInputChange}
                                     name="confirmPassword"
