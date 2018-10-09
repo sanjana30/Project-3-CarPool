@@ -151,6 +151,7 @@ class Registration extends Component {
                                     name="password"
                                     id="password"
                                     placeholder="password *"
+                                    type="password"
                                 />
                                 {/*<label>Confirm Password</label>*/}
                                 <Input
@@ -158,6 +159,7 @@ class Registration extends Component {
                                     onChange={this.handleInputChange}
                                     name="confirmPassword"
                                     placeholder="confirm password *"
+                                    type="password"
                                 />
 
                                 <FormBtn
